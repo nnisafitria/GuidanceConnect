@@ -38,3 +38,38 @@ a.border-lightblue:hover {
 /* .navbar-nav .nav-item a {
     text-decoration: none !important;
 } */
+
+/* hero section */
+#hero-section {
+    background: #84b4c8;
+    background-size: cover;
+    height: 500px;
+    position: relative;
+    padding: 0;
+}
+
+#hero-section::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#hero-section .row {
+    position: absolute;
+    z-index: 1;
+}
+
+#hero-section h2 {
+    margin-top: 100px;
+}
+
+.logo {
+    margin-top: 90px;
+    width: 80%; 
+    max-width: 300px;
+}
