@@ -1,0 +1,40 @@
+/* variables collor pallete */
+
+/* Global */
+section {
+    padding: 50px 0 100px;
+}
+
+/* custom css */
+.bg-lightblue {
+    background: #B2D9EA !important;
+}
+
+.bg-poloblue {
+    background: #84b4c8 !important;
+}
+
+.bg-darkcyan {
+    background: #619196 !important;
+}
+
+.text-poloblue {
+    color: #619196;
+}
+
+.border-lightblue {
+    border: 2px solid #B2D9EA;
+}
+
+a.bg-lightblue:hover {
+    background-color: #84b4c8;
+}
+
+a.border-lightblue:hover {
+    border: 2px solid #84b4c8 !important;
+}
+
+/* navigasi */
+/* .navbar-nav .nav-item a {
+    text-decoration: none !important;
+} */
