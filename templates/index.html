@@ -1,15 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <title>Document</title>
-    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="/styles.css">
+=======
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/styles.css">
+  <script>
+    $(document).ready(function () {
+      const multipleItemCarousel = document.querySelector('#carouselExample');
+
+      if (window.matchMedia("(min-width:576px)").matches) {
+        const carousel = new bootstrap.Carousel(multipleItemCarousel,
+          {
+            interval: false
+          })
+
+        var carouselWidth = $('.carousel-inner')[0].scrollWidth;
+        var cardWidth = $('.carousel-item').width();
+
+        var scrollPosition = 0;
+
+        $('.carousel-control-next').on('click', function () {
+          if (scrollPosition < (carouselWidth - (cardWidth * 4))) {
+            console.log('next');
+            scrollPosition = scrollPosition + cardWidth;
+            $('.carousel-inner').animate({ scrollLeft: scrollPosition }, 600);
+          }
+        });
+        $('.carousel-control-prev').on('click', function () {
+          if (scrollPosition > 0) {
+            console.log('prev');
+            scrollPosition = scrollPosition - cardWidth;
+            $('.carousel-inner').animate({ scrollLeft: scrollPosition }, 600);
+          }
+        });
+      } else {
+        $(multipleItemCarousel).addClass('slide');
+      }
+    });
+  </script>
+>>>>>>> 4511fd732bb1f77b00258bd8b6fe5e99c95c8d8e
 </head>
+
 <body>
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
           <a class="navbar-brand" href="#">GuidanceConnect</a>
@@ -76,5 +130,209 @@
         </div>
       </div>
       </section>
+=======
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="#">GuidanceConnect</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto d-flex gap-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mahasiswa & Alumni
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Profil</a></li>
+              <li><a class="dropdown-item" href="#">Alumni</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Forum</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Konseling</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">E-Libary</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Advokasi
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Advokasi</a></li>
+              <li><a class="dropdown-item" href="#">Informasi Beasiswa</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="display-4 text-black">
+            Welcome To GuidanceConnect
+          </h2>
+          <p class="text-black opacity-75">
+            HIMA BK UPI adalah organisasi kemahasiswaan yang mendukung pengembangan akademik dan non-akademik mahasiswa
+            melalui kegiatan seperti seminar, workshop, pelatihan, dan kegiatan sosial. Organisasi ini juga menjadi
+            wadah untuk menyalurkan aspirasi dan mempererat solidaritas di antara mahasiswa Bimbingan dan Konseling.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <img src="../static/logo/logo2.png" alt="GuidanceConnect Logo" class="img-fluid logo">
+        </div>
+      </div>
+    </div>
+    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#B2D9EA" fill-opacity="1"
+        d="M0,160L60,186.7C120,213,240,267,360,272C480,277,600,235,720,229.3C840,224,960,256,1080,272C1200,288,1320,288,1380,288L1440,288L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+      </path>
+    </svg>
+  </section>
+
+  <section id="visi-misi-section" class="py-5">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="rounded-box visi-box">
+            <h3>Visi</h3>
+            <p>Hima BK Sebagai Ruang Optimasi untuk KMBK Suportif</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="rounded-box misi-box">
+            <h3>Misi</h3>
+            <p>1. STRUCTURED GOVERNANCE
+              <br>
+              2. SUPPORTIVE CLIMATE
+              <br>
+              3. OPTIMIZATION OF NEEDS
+              <br>
+              4.COLLABORATIVE NETWORKS
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog-section">
+    <div class="container">
+      <h2 class="display-4 text-center">
+        News/Blogs
+      </h2>
+      <div id="carouselExample" class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card">
+              <div class="img-wrapper">
+                <img src="../static/img/mypbb.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <div class="img-wrapper">
+                <img src="../static/img/mypbb.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <div class="img-wrapper">
+                <img src="../static/img/mypbb.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item active">
+            <div class="card">
+              <div class="img-wrapper">
+                <img src="../static/img/mypbb.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <div class="img-wrapper">
+                <img src="../static/img/mypbb.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card">
+              <div class="img-wrapper">
+                <img src="../static/img/mypbb.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item active">
+            <div class="card">
+              <div class="img-wrapper">
+                <img src="../static/img/mypbb.jpg" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="section-profil">
+    <div class="container">
+      <h2 class="display-4 text-center">Profil Hima BK UPI</h2>
+      <p class="text-center">Video profil atau perkenalan Hima BK UPI</p>
+      <div class="video-wrapper">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" width="960" height="515"
+            src="https://www.youtube.com/embed/ccxVjxDhKSU?si=whSfU4Q5HksJAzLv" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+>>>>>>> 4511fd732bb1f77b00258bd8b6fe5e99c95c8d8e
 </body>
+
 </html>
