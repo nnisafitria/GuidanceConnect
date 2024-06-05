@@ -81,5 +81,105 @@ a.border-lightblue:hover {
 .logo {
     margin-top: 85px;
     width: 80%; 
-    max-width: 300px;
+    max-width: 220px;
+    margin-left: 50px;
 }
+
+/* Visi & Misi css */
+.rounded-box {
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+}
+.visi-box {
+    background-color: #619196;
+    color: white;
+}
+.misi-box {
+    background-color: #619196;
+    color: white;
+}
+#visi-misi-section {
+    background: #B2D9EA;
+    background-size: cover;
+}
+
+/* News/Blog css */
+.img-wrapper {
+    max-width: 100%;
+    height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+@media screen and (min-width:576px) {
+    .carousel-inner{
+        display: flex;
+    }
+    .carousel-item{
+        display: block;
+        margin-right: 0;
+        flex: 0 0 calc(100%/3);
+    }
+    
+}
+.carousel-inner {
+    padding: 1em;
+}
+.card {
+    margin: 0 .5em;
+    border-radius: 0;
+    box-shadow: 2px 8px 6px 0 rgba(22, 22, 26, 18);
+}
+.carousel-control-prev, .carousel-control-next{
+    width: 6vw;
+    height: 6vw;
+    background-color: #B2D9EA;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .5;
+}
+.carousel-control-prev:hover, .carousel-control-next{
+    opacity: .8;
+}
+#blog-section h2 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background: #f2f5f2;
+    background-size: cover;
+}
+#blog-section {
+    background: #f2f5f2;
+    background-size: cover;
+}
+
+/* .wave {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    line-height: 0;
+}
+.wave svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+/* Profil css */
+#section-profil {
+    background: #B2D9EA;
+    padding: 50px 0;
+  }
+  .video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
