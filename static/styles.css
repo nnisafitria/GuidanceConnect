@@ -218,4 +218,15 @@ img {
     align-items: center;
     width: 100%;
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.footer h3{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.footer p{
+    font-family: 'Outfit', sans-serif;
+}
 >>>>>>> 4511fd732bb1f77b00258bd8b6fe5e99c95c8d8e
