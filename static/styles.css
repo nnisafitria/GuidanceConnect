@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-=======
+
 
 .mypic {
     width: 100%;
@@ -41,7 +41,7 @@
 
 /* variables collor pallete */
 
->>>>>>> 749323d3da17e479e0c1462eb8f0a2a6eb0c0eb6
+
 /* Global */
 section {
     padding: 50px 0 100px;
@@ -247,7 +247,7 @@ img {
     justify-content: center;
     align-items: center;
     width: 100%;
-<<<<<<< HEAD
+
 }
 
 /* footer */
@@ -259,23 +259,20 @@ img {
 
 .footer h3{
     font-family: 'Quicksand', sans-serif;
-=======
-  }
 
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+  }
 
 .footer h3{
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
->>>>>>> 749323d3da17e479e0c1462eb8f0a2a6eb0c0eb6
+
 }
 
 .footer p{
     font-family: 'Outfit', sans-serif;
 }
 
-<<<<<<< HEAD
+
 /* divisi organisasi */
 #divisi {
     background-color: #ddd;
@@ -312,7 +309,7 @@ img {
 #divisi .section-body .col-md-4 {
     margin-bottom: 30px; 
 }
-=======
+
 .text{
     background-color: white;
     font-family: 'Outfit', sans-serif;
@@ -368,5 +365,4 @@ img {
 }
 
 
->>>>>>> 4511fd732bb1f77b00258bd8b6fe5e99c95c8d8e
->>>>>>> 749323d3da17e479e0c1462eb8f0a2a6eb0c0eb6
+
