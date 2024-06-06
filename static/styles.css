@@ -198,7 +198,7 @@ img {
 .carousel-control-prev, .carousel-control-next{
     width: 6vw;
     height: 6vw;
-    background-color: #B2D9EA;
+    background-color: #636363;
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
