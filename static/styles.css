@@ -364,5 +364,49 @@ img {
     text-align: center; 
 }
 
+/* Blogs */
+.blogs {
+    position: relative;
+    background-image: url(../static/img/mypbb.jpg);
+    width: 100%;
+    height: 300px;
+    background-position: center 30%;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.blogs::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.blogs .content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+.blogs h1 {
+    font-family: 'DM Sans', sans-serif;
+}
+.blogs p {
+    font-family: 'Outfit', sans-serif;
+}
+.text h2 {
+    font-family: 'Quicksand', sans-serif;
+}
+#comments-section h4{
+    font-family: 'Quicksand', sans-serif;
+}
 
 
