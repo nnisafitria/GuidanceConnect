@@ -257,6 +257,10 @@ img {
     box-sizing: border-box; 
 }
 
+.card-sm {
+    width: 18rem;
+}
+
 .text-rekomendasi {
     display: flex;
     justify-content: center; 
