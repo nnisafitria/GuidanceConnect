@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>KMBK UPI Alumni Page</title>
+    <link rel="stylesheet" href="../static/styles.css">
     <style>
 * {
     margin: 0;
@@ -89,19 +100,50 @@ h1, h2 {
 </head>
 
 <body>
-    <header>
-        <div class="header-left">
-            <h4>KMBK UPI Alumni Page</h4>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#">GuidanceConnect</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto d-flex gap-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mahasiswa & Alumni
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Profil</a></li>
+                <li><a class="dropdown-item" href="#">Alumni</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Forum</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Konseling</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">E-Libary</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Advokasi
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Advokasi</a></li>
+                <li><a class="dropdown-item" href="#">Informasi Beasiswa</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Mahasiswa & Alumni</a>
-            <a href="#">Forum</a>
-            <a href="#">Konseling</a>
-            <a href="#">E-Library</a>
-            <a href="#">Advokasi</a>
-        </nav>
-    </header>
+      </div>
+    </nav>
+  
 
         <div class="tengah">
         <h1>Testimoni</h1>
@@ -144,33 +186,47 @@ h1, h2 {
         </div>
     </main>
 
-    <!-- <footer>
-        <div class="footer-left">
-            <h3>Curahan Aspirasi</h3>
-            <p>Curahan aspirasi Ib adalah link untuk KMBK untuk menyampaikan aspirasi. Tanpanya belum in disparan Badan Aspirasi DPM Ib, jadi dilahirkan kepada pihak terkait.</p>
-        </div>
-        <div class="footer-right">
-            <div class="contact-info">
+    <footer class="footer py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="aspiration">
+                <h3>Curahan Aspirasi</h3>
+                <p>Curahan aspirasi ini adalah fitur untuk KMBK untuk menyampaikan aspirasi. Penerima pesan ini adalah Badan
+                  Aspirasi DPM BK, lalu disalurkan kepada pihak terkait.</p>
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                    style="height: 100px"></textarea>
+                  <label for="floatingTextarea2">Comments</label>
+                </div>
+                <br>
+                <button class="btn btn-light">Ajukan Disini!</button>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="contact-info">
                 <h3>Hubungi Kami</h3>
-                <p>anisa.n2202 (Anisa Nuryulianti)</p>
-                <p>Mail: himaba@upi.edu</p>
+                <p>anisa.n2202 (Anisa Nurwulan)</p>
+                <p>Mail : himabk@upi.edu</p>
+              </div>
             </div>
-            <div class="social-media">
-                <h3>Sosial Media</h3>
-                <a href="https://instagram.com/himabkupi" target="_blank">
-                    <i class="fab fa-instagram"></i> @himabkupi
-                </a>
-                <a href="https://www.facebook.com/HimaBasicUPI" target="_blank">
-                    <i class="fab fa-facebook"></i> HIMA Bk UPI
-                </a>
+            <div class="col-lg-4">
+              <div class="social-media">
+                <h3>Social Media</h3>
+                <p>IG: @himabkupi</p>
+                <p>FB: HIMA BK UPI</p>
+              </div>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <p>
+              <p>&copy; 2023 GuidanceConnect. All rights reserved.</p>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <button class="btn-aspirasi">Ajukan Disini!</button>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 GuidanceConnect. All rights reserved.</p>
-        </div>
-    </footer> -->
+      </footer>
+    
 </body>
 </html>
