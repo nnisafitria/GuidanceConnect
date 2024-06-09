@@ -1,4 +1,10 @@
 
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+
 .mypic {
     width: 100%;
     height: 300px;
@@ -34,6 +40,7 @@
 }
 
 /* variables collor pallete */
+
 
 /* Global */
 section {
@@ -101,6 +108,18 @@ a.border-lightblue:hover {
 
 #hero-section h2 {
     margin-top: 100px;
+    font-family: 'DM Sans', sans-serif;
+}
+#hero-section p {
+    font-family: 'Outfit', sans-serif;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 0;
 }
 
 .wave {
@@ -138,6 +157,12 @@ a.border-lightblue:hover {
     background: #B2D9EA;
     background-size: cover;
 }
+#visi-misi-section h3 {
+    font-family: 'Quicksand', sans-serif;
+}
+#visi-misi-section p {
+    font-family: 'Outfit', sans-serif;
+}
 
 /* News/Blog css */
 .img-wrapper {
@@ -173,7 +198,7 @@ img {
 .carousel-control-prev, .carousel-control-next{
     width: 6vw;
     height: 6vw;
-    background-color: #B2D9EA;
+    background-color: #636363;
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
@@ -185,11 +210,10 @@ img {
 #blog-section h2 {
     margin-top: 50px;
     margin-bottom: 30px;
-    background: #f2f5f2;
-    background-size: cover;
+    font-family: 'Quicksand', sans-serif;
 }
 #blog-section {
-    background: #f2f5f2;
+    background: #ddd;
     background-size: cover;
 }
 
@@ -211,24 +235,79 @@ img {
 #section-profil {
     background: #B2D9EA;
     padding: 50px 0;
-  }
-  .video-wrapper {
+}
+#section-profil h2 {
+    font-family: 'Quicksand', sans-serif;
+}
+#section-profil p {
+    font-family: 'Outfit', sans-serif;
+}
+.video-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-  }
 
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+}
+
+/* footer */
+.footer {
+    background-color: #4a4a8f;
+    color: white;
+    padding: 20px;
+}
+
+.footer h3{
+    font-family: 'Quicksand', sans-serif;
+
+  }
 
 .footer h3{
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;
+
 }
 
 .footer p{
     font-family: 'Outfit', sans-serif;
+}
+
+
+/* divisi organisasi */
+#divisi {
+    background-color: #ddd;
+    padding: 80px 0;
+}
+#divisi h2{
+    margin-bottom: 30px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+#divisi .section-body-item {
+    display: flex;
+    background-color: #619196;
+    border-radius: 5 px;
+    padding: 20px;
+    color: white;
+    height: 200px;
+    align-items: center;
+}
+#divisi .section-body-item h5 {
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+}
+#divisi .section-body-item p {
+    font-family: 'Outfit', sans-serif;
+}
+#divisi .section-body-item .icon {
+    margin-top: 25px; 
+}
+/* #divisi .section-body .row:first-of-type {
+    margin-bottom: 30px;
+} */
+#divisi .section-body .col-md-4 {
+    margin-bottom: 30px; 
 }
 
 .text{
@@ -285,5 +364,112 @@ img {
     text-align: center; 
 }
 
+/* Blogs */
+.blogs {
+    position: relative;
+    background-image: url(../static/img/mypbb.jpg);
+    width: 100%;
+    height: 300px;
+    background-position: center 30%;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
->>>>>>> 4511fd732bb1f77b00258bd8b6fe5e99c95c8d8e
+.blogs::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.blogs .content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+.blogs h1 {
+    font-family: 'DM Sans', sans-serif;
+}
+.blogs p {
+    font-family: 'Outfit', sans-serif;
+}
+.text h2 {
+    font-family: 'Quicksand', sans-serif;
+}
+#comments-section h4{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.konseling {
+    width: 100%;
+    height: 500px;
+
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('');
+    background-position: center 30%;
+    background-size: cover;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.konseling h3 {
+    color: #4d4d4d;
+}
+
+/* icon navbar admin */
+.icon {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+.icon h5 {
+    display: flex;
+    gap: 1rem; 
+    margin: 0;
+    padding: 0;
+    font-size: 1.25rem; 
+}
+.icon i {
+    margin-right: 0.5rem;
+}
+
+/* sidebar admin */
+.nav-column {
+    margin-left: 20px;
+}
+.custom-hr {
+    border-top: 1px solid white; 
+}
+.nav-link i {
+    margin-right: 10px; 
+}
+.nav-link:hover {
+    background-color: #619196;
+}
+.sidebar {
+  height: calc(100vh - 56px); 
+  position: fixed; 
+  top: 56px;
+  bottom: 0;
+}
+.main-content {
+  margin-left: 16.666667%;
+  padding: 20px;
+}
+
+
+
+
