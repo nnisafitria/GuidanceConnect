@@ -8,7 +8,11 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
+<<<<<<< HEAD
 set VIRTUAL_ENV=C:\Users\62878\Documents\SIB LearningX\Project\GuidanceConnect\venv
+=======
+set VIRTUAL_ENV=C:\Users\62878\Documents\SIB LearningX\LatihanAPI\venv
+>>>>>>> b67bb8e5571590036fe832cf0c8df7bbf44754a8
 
 if not defined PROMPT set PROMPT=$P$G
 
