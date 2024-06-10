@@ -498,8 +498,16 @@ img {
     margin-left: 20px;
 }
 
+.navbar-brand {
+    font-family: 'DM Sans', sans-serif;
+}
+
 .custom-hr {
     border-top: 1px solid white;
+}
+
+.nav-link {
+    font-family: 'Quicksand', sans-serif;
 }
 
 .nav-link i {
@@ -522,6 +530,10 @@ img {
     padding: 20px;
 }
 
+.main-content h3 {
+    font-family: 'DM Sans', sans-serif;
+}
+
 /* dashboard */
 .font-weight-bold {
     font-weight: bold;
@@ -529,6 +541,7 @@ img {
 
 .card-body h5, .card-body .display-4 {
     color: white; 
+    font-family: 'Quicksand', sans-serif;
 }
 
 .icon-white {
