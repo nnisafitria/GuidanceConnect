@@ -42,6 +42,38 @@ def admin():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/admin_mahasiswa')
+def admin_mahasiswa():
+    return render_template('admin_mahasiswa.html')
+
+@app.route('/tambah_mahasiswa')
+def tambah_mahasiswa():
+    return render_template('tambah_mahasiswa.html')
+
+@app.route('/admin_alumni')
+def admin_alumni():
+    return render_template('admin_alumni.html')
+
+@app.route('/tambah_alumni')
+def tambah_alumni():
+    return render_template('tambah_alumni.html')
+
+@app.route('/admin_blog')
+def admin_blog():
+    return render_template('admin_blog.html')
+
+@app.route('/tambah_blog')
+def tambah_blog():
+    return render_template('tambah_blog.html')
+
+@app.route('/admin_infobeasiswa')
+def admin_infobeasiswa():
+    return render_template('admin_infobeasiswa.html')
+
+@app.route('/tambah_beasiswa')
+def tambah_beasiswa():
+    return render_template('tambah_beasiswa.html')
+
 @app.route('/semester1')
 def semester1():
     return render_template('semester1.html')
