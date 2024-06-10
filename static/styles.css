@@ -550,3 +550,7 @@ img {
     margin-right: 15px; 
 }
 
+/* font navbar*/
+.nav-link {
+    font-family: 'DM Sans', sans-serif;
+}
