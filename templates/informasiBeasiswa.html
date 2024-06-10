@@ -3,9 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <title>Informasi Beasiswa</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <style>
+        .full-width-card {
+            width: 90%;
+            margin-bottom: 30px;
+        }
+
+        .full-width-card .row {
+            flex-wrap: nowrap;
+        }
+
+        .full-width-card .col-md-4,
+        .full-width-card .col-md-8 {
+            flex: 1;
+        }
+
+        .full-width-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .full-width-card .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .new-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #84b4c8;
+            margin-bottom: 20px;
+          }
+          
+          .new-content img.scholarship-logo {
+            width: 50px; 
+            height: auto; 
+          }
+          .new-text {
+            text-align: left;
+          }
+          h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+          }
+          
+          p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+          }
+          .small-logo {
+            width: 50px; 
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    INFORMASI BEASISWA
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Advokasi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto d-flex gap-3">
+            <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
+              <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li class="nav-item dropdown {% if active_page in ['profil', 'alumni'] %}active{% endif %}">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mahasiswa & Alumni
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
+              </ul>
+            </li>
+            <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
+              <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
+            </li>
+            <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
+              <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
+            </li>
+            <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
+              <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
+            </li>
+            <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Advokasi
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+          <div class="new">
+            <div class="new-content">
+                <div class="new-text">
+              <h1>Welcome to Scholarships Portal</h1>
+            </div>
+            <img src="../static/img/graduation.png" alt="Scholarship Portal Logo">
+            </div>
+          </div>
+       </nav>
+    
+      
+        <div class="container-fluid">
+            <div class="card full-width-card mb-3" style="max-width: 90%;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="../static/img/beasiswa.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Beasiswa DataPrint</h5>
+                            <p class="card-text">
+                                Beasiswa DataPrint kembali memberikan bantuan dana bagi seluruh pelajar Indonesia. Kamu harus membuat esai yang baik sesuai dengan tema dan mengisi formulir dengan data yang tepat dan sebenar-benarnya. Tidak ada sistem kuota berdasarkan daerah dan atau sekolah/perguruan tinggi. Hal ini bertujuan agar beasiswa dapat diterima secara merata bagi seluruh pengguna DataPrint di Indonesia.  Beasiswa terbagi dalam tiga nominal yaitu Rp400 ribu, Rp700 ribu dan Rp1 juta. Aspek penilaian berdasarkan dari esai, link info, prestasi, dan keaktifan peserta.
+                            </p>
+                            <h6>Persyaratan</h6>
+                            <ol>
+                                <li>Mahasiswa aktif jenjang D3/D4/S1</li>
+                                <li>Terlibat aktif dalam suatu kegiatan atau organisasi</li>
+                                <li>Tidak terlibat narkoba atau pernah melakukan tindak kriminal</li>
+                                <li>Tidak sedang menerima beasiswa dari perusahaan swasta lain. Jika saat ini peserta masih menerima beasiswa dari sekolah/kampus & pemerintah, peserta berhak mengikuti pendaftaran beasiswa dari DataPrint.</li>
+                                <li>Penerima beasiswa di periode 1 tidak dapat menjadi penerima beasiswa di periode 2 tahun 2021.</li>
+                                <li>Mengisi formulir registrasi di kolom Pendaftaran</li>
+                                <li>Satu nomor kupon yang terdapat di dalam produk DataPrint, hanya berlaku untuk satu kali registrasi.</li>
+                                <li>Pendaftaran tidak dipungut biaya.</li>
+                            </ol>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card full-width-card mb-3" style="max-width: 90%;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../static/img/beasiswa.png" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Beasiswa IKA UPI</h5>
+                      <p class="card-text">Ikatan Alumni UPI kembali membuka kesempatan kepada para mahasiswa untuk ikut serta dalam program Beasiswa IKA UPI Tahun 2022. Batas pendaftaran dibuka hingga tanggal 15 Juli 2022. So, what are you witing for?Segera persiapkan dirimu dan jangan sampai terlewat yaa!!
+                        Pendaftaran dan informasi selengkapnya dapat dilihat pada postingan di atas atau menghubungi pengelola Lembaga Beasiswa IKA UPI: 08197924000 (Najip/Wasekjen IKA UPI)</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+      <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="aspiration">
+                        <h3>Curahan Aspirasi</h3>
+                        <p>Curahan aspirasi ini adalah fitur untuk KMBK untuk menyampaikan aspirasi. Penerima pesan ini adalah Badan Aspirasi DPM BK, lalu disalurkan kepada pihak terkait.</p>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Comments</label>
+                        </div>
+                        <br>
+                        <button class="btn btn-light">Ajukan Disini!</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="contact-info text-center">
+                        <h3>Hubungi Kami</h3>
+                        <p>anisa.n2202 (Anisa Nurwulan)</p>
+                        <p>Mail: himabk@upi.edu</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-end">
+                    <div class="social-media text-right">
+                      <p>Instagram: <a href="https://www.instagram.com/himabkupi/">@himabkupi</a></p>
+                      <p>Facebook: <a href="https://www.facebook.com/himabk.dppb.upi/?locale=id_ID">HIMA BK UPI</a></p>
+                      <p>TikTok: <a href="https://www.tiktok.com/@prodibk.upi">HIMA BK UPI</a></p>
+                      <p>Spotify: <a href="https://open.spotify.com/show/2nSqC89TMjZqbJcOi3j7gV">HIMA BK UPI</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-lg-12">
+                  <p>&copy; 2023 GuidanceConnect. All rights reserved.</p>
+              </div>
+          </div>
+        </div>
+    </footer>
 </body>
 </html>

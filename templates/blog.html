@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Blog</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Advokasi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto d-flex gap-3">
+            <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
+              <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li class="nav-item dropdown {% if active_page in ['profil', 'alumni'] %}active{% endif %}">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Mahasiswa & Alumni
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
+              </ul>
+            </li>
+            <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
+              <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
+            </li>
+            <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
+              <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
+            </li>
+            <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
+              <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
+            </li>
+            <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Advokasi
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="blogs">
+        <div class="content">
+            <h1>(Judul Blog)</h1>
+            <hr>
+            <p>POSTED ON 01 - 04 - 2023</p>
+        </div>
+    </div>
+
+
+    <div class="text">
+        <div class="inner-text">
+            <div class="container">
+                <h2><strong>HARVARD COLLEGE ADMISSIONS & FINANCIAL AID</strong></h2>
+                <p>Dear Yohanna,
+                    <br>
+                    … I am very sorry to inform you that we cannot offer you admission to the class of 2027.
+                    <br>
+                    Deg. Sudah kuduga. Waktu itu rasanya tidak terlalu terkejut sebenarnya. Iya, pemberitahuan di atas
+                    menyatakan kegagalanku (lagi), entah yang ke berapa kalinya. Kecewa? Banyak bukan lagi sedikit.
+                    Marah? Apalagi sama diri sendiri. Meski begitu, Papaku sempat bilang, “lebih baik gagal daripada
+                    menyesal tidak pernah mencoba.” Tahun lalu aku menyibukkan diri dengan persiapan pendaftaran kuliah
+                    ke luar negeri, spesifiknya ke Harvard dan Stanford University. Siapa yang pernah menduga, ternyata
+                    aku, si anak sulung calon first generation (generasi pertama yang akan menempuh perkuliahan) membuka
+                    jalan untuk adik-adik tingkat di sekolahnya untuk mendaftarkan kuliah ke luar negeri tanpa berbekal
+                    apa pun, kecuali keinginan dan tekad.
+                    Surat rekomendasi beberapa guru, berbagai macam esai, portal Common App dan College Board, tes
+                    Scholastic Aptitude Test (SAT), penyetaraan Bahasa Inggris melalui IELTS, dokumen pendukung dalam
+                    Bahasa Inggris, dan tumpukan dokumen lain yang harus dikumpulkan dalam waktu terbatas adalah pikiran
+                    di alam lainku, selain harus menyelesaikan UAS dan US. Karena pikiran-pikiran itu, Yohanna, anak
+                    yang paling nekad ini, akhirnya punya jam tidur yang super berantakan. Hampir setiap hari hobinya
+                    tidur jam 2-3 pagi untuk menyelesaikan dokumen persyaratan pendaftaran. Belum lagi tugas akhir yang
+                    sifatnya project-based, pentas seni, ekstrakurikuler paduan suara, dan common myth lain yang menjadi
+                    ekspektasi orang-orang untuk para applicant yang kuliah ke luar negeri. Luar biasa.
+                    Rasa-rasanya, waktu itu berat sekali. Seperti yang sudah ku bilang, jam tidur yang berantakan,
+                    koneksi sosial menjadi terbatas, pola makan tidak beraturan, dan beragam informasi lain yang
+                    sebenarnya agak mendidihkan pikiran di sosial media, overwhelmed. Bermimpi bisa menginjakkan kaki di
+                    kampus impianku adalah satu-satunya yang menjadi alasanku bertahan memperjuangkan prosesnya. Tapi,
+                    siapa yang tahu, kalau meskipun aku gagal, aku sempat berbincang dengan alumni Stanford di sesi
+                    wawancara dalam Bahasa Inggris. Seingatku, kami bertemu di Blue Doors 2, dekat daerah Paris Van Java
+                    (PVJ). Menarik sekali pokoknya saat berbincang dengan beliau apalagi dalam Bahasa Inggris. Kacamata
+                    perspektif akan belajar di luar negeri dari beliau semakin membuatku tertarik untuk pergi ke sana.
+                    Lalu, kalau aku tarik lebih jauh lagi ke belakang, sejujurnya kegagalanku ini membuat aku belajar
+                    dan mengenal sangat banyak hal baru. Kalau ngga daftar kuliah ke luar negeri, mungkin aku ngga akan
+                    pernah tahu rasanya punya mentor dari Jepang, Australia, Inggris, dan Amerika. Kalau ngga daftar
+                    kuliah ke luar negeri, mungkin aku ngga akan pernah tahu rasanya revisi, proofreading dan mengulang
+                    topik esai yang baru di jam 10 malam. Kalau ngga daftar kuliah ke luar negeri, mungkin aku ngga akan
+                    pernah tahu rasanya paham dan punya wawasan yang lebih maju dari teman-temanku tentang portal
+                    pendaftaran kuliah di luar negeri karena aku sudah riset banyak tentang itu. Kalau ngga daftar
+                    kuliah ke luar negeri, mungkin aku ngga akan pernah tahu rasanya dapet surat rekomendasi dari
+                    guru-guru penting dan kepala sekolah yang sangat suportif.
+                    <br>
+                    <br>
+                    Salam sayang,
+                    Yoyo.
+                    <br>
+                    <br>
+                    Tags: #HimaBK2023 #KabinetKaryaAksata #BerkaryaSepanjangMasa #KaryaKMBK</p>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <section id="comments-section">
+        <div class="container">
+            <h4>Comments*</h4>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Tuliskan komentar...</label>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h4>Name*</h4>
+                  <input type="text" class="form-control" placeholder="name" aria-label="name">
+                </div>
+                <div class="col">
+                    <h4>Email*</h4>
+                  <input type="text" class="form-control" placeholder="email" aria-label="email">
+                </div>
+              </div>
+              <br>
+              <button type="button" class="btn btn-primary"><i class="bi bi-send">Post Comments</i></button>
+        </div>
+      </section>
+
+      <footer class="footer py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="aspiration">
+                <h3>Curahan Aspirasi</h3>
+                <p>Curahan aspirasi ini adalah fitur untuk KMBK untuk menyampaikan aspirasi. Penerima pesan ini adalah Badan
+                  Aspirasi DPM BK, lalu disalurkan kepada pihak terkait.</p>
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                    style="height: 100px"></textarea>
+                  <label for="floatingTextarea2">Comments</label>
+                </div>
+                <br>
+                <button class="btn btn-light">Ajukan Disini!</button>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="contact-info">
+                <h3>Hubungi Kami</h3>
+                <p>anisa.n2202 (Anisa Nurwulan)</p>
+                <p>Mail : himabk@upi.edu</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="social-media">
+                <h3>Social Media</h3>
+                <p>Instagram: <a href="https://www.instagram.com/himabkupi/">@himabkupi</a></p>
+                <p>Facebook: <a href="https://www.facebook.com/himabk.dppb.upi/?locale=id_ID">HIMA BK UPI</a></p>
+                <p>TikTok: <a href="https://www.tiktok.com/@prodibk.upi">HIMA BK UPI</a></p>
+                <p>Spotify: <a href="https://open.spotify.com/show/2nSqC89TMjZqbJcOi3j7gV">HIMA BK UPI</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <p>
+              <p>&copy; 2024 GuidanceConnect. All rights reserved.</p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+</body>
+
+</html>
