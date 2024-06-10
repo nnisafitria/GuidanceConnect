@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
+    
+    .sidebar {
+        width: 220px;
+        height: 100vh;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    
+    .logo {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+    
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .sidebar ul li {
+        margin: 20px 0;
+    }
+    
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        display: block;
+    }
+    
+    .sidebar ul li a:hover {
+        color: #007bff;
+    }
+    
+    .logout {
+        position: absolute;
+        bottom: 20px;
+    }
+    
+    .logout a {
+        text-decoration: none;
+        color: #333;
+    }
+    
+    .logout a:hover {
+        color: #007bff;
+    }
+    
+    .main-content {
+        margin-left: 240px;
+        padding: 40px;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .header h2 {
+        margin: 0;
+    }
+    
+    .add-blog-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    .add-blog-btn:hover {
+        background-color: #0056b3;
+    }
+    
+    .blog-table {
+        margin-top: 10px;
+        background-color: #fff;
+        padding: 50px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    thead {
+        background-color: #f8f9fa;
+    }
+    
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    th {
+        font-weight: bold;
+    }
+    
+    td button {
+        margin-right: 50px;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    
+    .edit-btn {
+        background-color: #ffc107;
+        color: #fff;
+    }
+    
+    .edit-btn:hover {
+        background-color: #e0a800;
+    }
+    
+    .delete-btn {
+        background-color: #dc3545;
+        color: #fff;
+    }
+    
+    .delete-btn:hover {
+        background-color: #c82333;
+    }
+
+    @media (max-width: 768px) {
+        .main-content {
+            margin-left: 0;
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        .sidebar ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .header {
+            flex-direction: column;
+        }
+    }
+</style>
+<body>
+    <div class="sidebar">
+        <div class="logo">GuidanceConnect</div>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Profil Mahasiswa</a></li>
+            <li><a href="#">Informasi Beasiswa</a></li>
+            <li><a href="#">Alumni</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+        <div class="logout"><a href="#">Log Out</a></div>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <h2>Blog</h2>
+            <button class="add-blog-btn">+ Tambah Blog</button>
+        </div>
+        <div class="blog-table">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Judul</th>
+                        <th>Gambar</th>
+                        <th>Isi Blog</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>Happy Birthday...</td>
+                        <td>KMBK.jpg</td>
+                        <td>Halo sobat-sobat KMBK...</td>
+                        <td>
+                            <button class="edit-btn btn btn-warning">Edit</button>
+                            <button class="delete-btn btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>MOSKA CAMP...</td>
+                        <td>MOSKA.jpg</td>
+                        <td>My PPB kembali hadir membaw...</td>
+                        <td>
+                            <button class="edit-btn btn btn-warning">Edit</button>
+                            <button class="delete-btn btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Pengabdian pada...</td>
+                        <td>P2M.jpg</td>
+                        <td>Pengabdian Pada Masyarakat a...</td>
+                        <td>
+                            <button class="edit-btn btn btn-warning">Edit</button>
+                            <button class="delete-btn btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>Sekolah kepemin...</td>
+                        <td>SOSPOL.jpg</td>
+                        <td>Masa Orientasi dan Kaderisas...</td>
+                        <td>
+                            <button class="edit-btn btn btn-warning">Edit</button>
+                            <button class="delete-btn btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td>Terkadang kita ha...</td>
+                        <td>Karya.jpg</td>
+                        <td>Halo, hello, nǐ hǎo, bonjour...</td>
+                        <td>
+                            <button class="edit-btn btn btn-warning">Edit</button>
+                            <button class="delete-btn btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

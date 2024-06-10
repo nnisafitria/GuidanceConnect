@@ -13,19 +13,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 body {
-    background: #b2d9ea;
+    background: #ffffff;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
+
 .custom-row {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Menambahkan flex-wrap untuk responsif */
+}
+
+.header img {
+    margin-right: 100px;
+    width: 300px; /* Ukuran gambar untuk menyesuaikan layout */
+    height: auto;
+}
+
+.header h1 {
+    font-size: 1.5rem; /* Ukuran font disesuaikan */
+}
+
 
 /* Profile Section Styling */
 .profile-section {
@@ -48,15 +67,14 @@ body {
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* Change to column layout */
-    gap: 0.5rem; /* Add gap between Nama and NIM */
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .student:hover {
     transform: scale(0.96);
     transition: transform 0.3s ease-in-out;
 }
-
 
 .student p {
     margin: 0;
@@ -69,62 +87,93 @@ body {
     background-color: #b2d9ea;
 }
 
-@media (max-width: 768px) {
-    .student-list {
-        gap: 0.5rem;
-    }
-}
-
-
-
 .mypic {
     width: 100%;
-    height: 550px;
-
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../static/img/profil_mahasiswa.jpg');
+    height: 500px;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../static/img/mahasiswa_dan_alumni.jpg');
     background-position: center 30%;
     background-size: cover;
-
     color: white;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center; /* Menambahkan text-align untuk responsif */
 }
+
 .mypic h1 {
     font-family: 'DM Sans', sans-serif;
+    font-size: 2rem; /* Ukuran font disesuaikan */
 }
+
 .footer {
     background-color: #619196;
     color: white;
     padding: 20px;
-  }
-  
-  .footer h3 {
-    font-family: 'Quicksand', sans-serif;
-  }
-  
-  .footer p {
-    font-family: 'Outfit', sans-serif;
-  }
-  
-  .footer .contact-info, .footer .social-media {
-    text-align: center;
-  }
-  
-  .footer .aspiration {
-    text-align: left;
-  }
-  
-  .footer .social-media {
-    text-align: right;
-  }
-  
-  .footer .row.mt-5 {
-    margin-top: 3rem;
-  }
+}
 
+.footer h3 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.footer p {
+    font-family: 'Outfit', sans-serif;
+}
+
+.footer .contact-info, .footer .social-media {
+    text-align: center;
+}
+
+.footer .row.mt-5 {
+    margin-top: 3rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header img {
+        margin: 0 auto 10px; /* Menyesuaikan margin untuk responsif */
+        width: 120px; /* Ukuran gambar untuk layar kecil */
+    }
+
+    .header h1 {
+        font-size: 1.25rem; /* Ukuran font disesuaikan */
+    }
+
+    .mypic {
+        height: 200px;
+    }
+
+    .mypic h1 {
+        font-size: 1.5rem;
+    }
+
+    .footer .aspiration, .footer .social-media, .footer .contact-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1rem; /* Ukuran font disesuaikan */
+    }
+
+    .header img {
+        width: 100px; /* Ukuran gambar untuk layar sangat kecil */
+    }
+
+    .mypic {
+        height: 150px;
+    }
+
+    .mypic h1 {
+        font-size: 1.25rem;
+    }
+}
 
     </style>
 </head>
@@ -175,40 +224,24 @@ body {
     </header>
     <div>
         <div class="mypic">
-            <h1>Profil Mahasiswa 2023</h1>
-            <p>Data mahasiswa 2023</p>
+            <h1>Profil Program Studi dan Mahasiswa</h1>
+            <p>Temukan data terlengkap disini!</p>
         </div>
     </div>
-    <div class="container my-5">
-        <div class="custom-row align-items-center">
-            <div class="col-lg-6">
-                <section class="profile-section">
-                    <div class="student-list">
-                        <div class="student">
-                            <p>Nama</p>
-                            <p>NIM</p>
-                        </div>
-                        <div class="student">
-                            <p>Nama</p>
-                            <p>NIM</p>
-                        </div>
-                        <div class="student">
-                            <p>Nama</p>
-                            <p>NIM</p>
-                        </div>
-                        <div class="student">
-                            <p>Nama</p>
-                            <p>NIM</p>
-                        </div>
-                        <div class="student">
-                            <p>Nama</p>
-                            <p>NIM</p>
-                        </div>
-                        <!-- Tambahkan entri mahasiswa di sini -->
-                    </div>
-                </section>
-            </div>
+    <div class="container">
+        <div class="header">
+            <img src="../static/img/BK .jpg" alt="Logo">
+            <h1>Program Studi BK FIP UPI</h1>
         </div>
+        <h2>Visi</h2>
+        <p>Menjadi Program Studi Bimbingan dan Konseling Pelopor dan Unggul dalam Ilmu, Teknologi, serta Seni Bimbingan dan Konseling di Asia Tenggara pada tahun 2025</p>
+        <h2>Misi</h2>
+        <ul>
+            <li>Menyelenggarakan Pendidikan Akademik Dan Profesional Bermutu Tinggi Untuk Menghasilkan Guru BK/Konselor Yang Berdaya Saing Global.</li>
+            <li>Melakukan Penelitian Untuk Pengembangan Disiplin Ilmu, Teknologi, Dan Seni Yang Inovatif Serta Penerapannya Untuk Penguatan Budaya Akademik, Landasan Penetapan Kebijakan, Dan Peningkatan Mutu Praksis BK.</li>
+            <li>Menyelenggarakan Layanan Pengabdian Kepada Masyarakat Secara Profesional Dalam Rangka Ikut Serta Menyelesaikan Masalah Nasional Dalam Bidang BK Khususnya Dan Layanan Kemanusiaan Pada Umumnya.</li>
+            <li>Menjalin Kerjasama Dengan Lembaga Dan Organisasi Profesi Pada Tingkat Nasional, Regional Dan Internasional Dalam Rangka Mendapatkan Pengakuan PSBK UPI Di Kawasan Asia Tenggara.</li>
+        </ul>
     </div>
     <footer class="footer py-5">
         <div class="container">
