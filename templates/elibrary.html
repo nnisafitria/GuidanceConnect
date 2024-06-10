@@ -14,82 +14,111 @@
         crossorigin="anonymous"></script>
     <title>E-Library</title>
     <link rel="stylesheet" href="../static/styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <style>
         .mypic {
-          width: 100%;
-          height: 300px;
-    
-          background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../static/img/e-library.jpeg');
-          background-position: center 30%;
-          background-size: cover;
-    
-          color: white;
-    
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-    
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 400px;
+            width: 100%;
+            height: 300px;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../static/img/e-library.jpeg');
+            background-position: center 30%;
+            background-size: cover;
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
         }
-      </style>
+
+        .mypic h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .mypic p {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .card-title {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+        }
+
+        .card-text {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .col-md-8 {
+            background-color: #B2D9EA;
+        }
+    </style>
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
             <a class="navbar-brand" href="#">Advokasi</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ms-auto d-flex gap-3">
-                <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
-                  <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
-                </li>
-                <li class="nav-item dropdown {% if active_page in ['profil', 'alumni'] %}active{% endif %}">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Mahasiswa & Alumni
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
-                    <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
-                  <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
-                </li>
-                <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
-                  <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
-                </li>
-                <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
-                  <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
-                </li>
-                <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Advokasi
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
-                    <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
-                  </ul>
-                </li>
-              </ul>
+                <ul class="navbar-nav ms-auto d-flex gap-3">
+                    <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown {% if active_page in ['profil', 'alumni'] %}active{% endif %}">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Mahasiswa & Alumni
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
+                        <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
+                    </li>
+                    <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
+                        <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
+                    </li>
+                    <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
+                        <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
+                    </li>
+                    <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Advokasi
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-          </div>
-        </nav>
+        </div>
+    </nav>
 
     <div class="mypic">
         <h1>Temukan Sumber Belajar Terpercaya!!</h1>
 
-        <p>“E-Library” adalah salah satu fasilitas GuidanceConnect yang memungkinkan kamu </p>
+        <p>“E-Library” adalah salah satu fasilitas MyPPB yang memungkinkan kamu </p>
         <p>untuk mendapatkan bahan kuliah seputar Bimbingan dan Konseling melalui Google </p>
         <p>Drive dalam bentuk dokumen dan video yang mudah untuk kamu akses</p>
     </div>
@@ -103,7 +132,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Semester 1</h5>
+                        <h5 class="card-title" style="color: black;">Semester 1</h5>
                         <p class="card-text">Cek Selengkapnya Disini</p>
                     </div>
                 </div>
@@ -117,7 +146,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Semester 2 dan SP</h5>
+                        <h5 class="card-title" style="color: black;">Semester 2 dan SP</h5>
                         <p class="card-text">Cek Selengkapnya Disini</p>
                     </div>
                 </div>
@@ -131,7 +160,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Semester 3</h5>
+                        <h5 class="card-title" style="color: black;">Semester 3</h5>
                         <p class="card-text">Cek Selengkapnya Disini</p>
                     </div>
                 </div>
@@ -145,7 +174,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Semester 4 dan SP</h5>
+                        <h5 class="card-title" style="color: black;">Semester 4 dan SP</h5>
                         <p class="card-text">Cek Selengkapnya Disini</p>
                     </div>
                 </div>
@@ -159,7 +188,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Semester 5</h5>
+                        <h5 class="card-title" style="color: black;">Semester 5</h5>
                         <p class="card-text">Cek Selengkapnya Disini</p>
                     </div>
                 </div>
@@ -173,7 +202,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Semester 6</h5>
+                        <h5 class="card-title" style="color: black;">Semester 6</h5>
                         <p class="card-text">Cek Selengkapnya Disini</p>
                     </div>
                 </div>
@@ -245,7 +274,8 @@
                     <div class="social-media text-right">
                         <h3>Social Media</h3>
                         <p>Instagram: <a href="https://www.instagram.com/himabkupi/">@himabkupi</a></p>
-                        <p>Facebook: <a href="https://www.facebook.com/himabk.dppb.upi/?locale=id_ID">HIMA BK UPI</a></p>
+                        <p>Facebook: <a href="https://www.facebook.com/himabk.dppb.upi/?locale=id_ID">HIMA BK UPI</a>
+                        </p>
                         <p>TikTok: <a href="https://www.tiktok.com/@prodibk.upi">HIMA BK UPI</a></p>
                         <p>Spotify: <a href="https://open.spotify.com/show/2nSqC89TMjZqbJcOi3j7gV">HIMA BK UPI</a></p>
                     </div>

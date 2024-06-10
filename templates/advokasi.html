@@ -14,6 +14,11 @@
     crossorigin="anonymous"></script>
   <title>Advokasi</title>
   <link rel="stylesheet" href="../static/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+    rel="stylesheet">
+
 
   <style>
     .mypic {
@@ -37,56 +42,76 @@
       align-items: center;
       justify-content: center;
       height: 400px;
+    }
 
+    .col-md-8 {
+      background-color: #B2D9EA;
+    }
 
+    .mypic h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+    }
+
+    .mypic p {
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .card-title {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+    }
+
+    .card-text {
+      font-family: 'Outfit', sans-serif;
     }
   </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="#">Advokasi</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ms-auto d-flex gap-3">
-            <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
-              <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
-            </li>
-            <li class="nav-item dropdown {% if active_page in ['profil', 'alumni'] %}active{% endif %}">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Mahasiswa & Alumni
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
-              </ul>
-            </li>
-            <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
-              <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
-            </li>
-            <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
-              <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
-            </li>
-            <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
-              <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
-            </li>
-            <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Advokasi
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="#">Advokasi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto d-flex gap-3">
+          <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li class="nav-item dropdown {% if active_page in ['profil', 'alumni'] %}active{% endif %}">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mahasiswa & Alumni
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
+            </ul>
+          </li>
+          <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
+          </li>
+          <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
+          </li>
+          <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
+          </li>
+          <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Advokasi
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
   <div class="mypic">
     <h1>Hima Care (Advokasi)</h1>
@@ -122,7 +147,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Putri Cahyani</h5>
+            <h5 class="card-title" style="color: black;">Putri Cahyani</h5>
             <p class="card-text">+62 822-5867-9377</p>
           </div>
         </div>
@@ -136,7 +161,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Raisa Putri Listiawati</h5>
+            <h5 class="card-title" style="color: black;">Raisa Putri Listiawati</h5>
             <p class="card-text">+62 812-2340-3780</p>
           </div>
         </div>
@@ -150,7 +175,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Nabila Destriyanti</h5>
+            <h5 class="card-title" style="color: black;">Nabila Destriyanti</h5>
             <p class="card-text">+62 831-2664-3870</p>
           </div>
         </div>
@@ -164,7 +189,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Bilqis Syakira Khalda</h5>
+            <h5 class="card-title" style="color: black;">Bilqis Syakira Khalda</h5>
             <p class="card-text">+62 896-2007-6804</p>
           </div>
         </div>
@@ -199,11 +224,11 @@
         </div>
         <div class="col-lg-4 d-flex justify-content-end">
           <div class="social-media text-right">
-              <h3>Social Media</h3>
-              <p>Instagram: <a href="https://www.instagram.com/himabkupi/">@himabkupi</a></p>
-              <p>Facebook: <a href="https://www.facebook.com/himabk.dppb.upi/?locale=id_ID">HIMA BK UPI</a></p>
-              <p>TikTok: <a href="https://www.tiktok.com/@prodibk.upi">HIMA BK UPI</a></p>
-              <p>Spotify: <a href="https://open.spotify.com/show/2nSqC89TMjZqbJcOi3j7gV">HIMA BK UPI</a></p>
+            <h3>Social Media</h3>
+            <p>Instagram: <a href="https://www.instagram.com/himabkupi/">@himabkupi</a></p>
+            <p>Facebook: <a href="https://www.facebook.com/himabk.dppb.upi/?locale=id_ID">HIMA BK UPI</a></p>
+            <p>TikTok: <a href="https://www.tiktok.com/@prodibk.upi">HIMA BK UPI</a></p>
+            <p>Spotify: <a href="https://open.spotify.com/show/2nSqC89TMjZqbJcOi3j7gV">HIMA BK UPI</a></p>
           </div>
         </div>
       </div>
