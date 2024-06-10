@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
@@ -22,7 +22,10 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+canvas {
+  display: block;
+  margin: 0 auto;
+}
 .custom-row {
     display: flex;
     align-items: center;
@@ -229,7 +232,7 @@ body {
         </div>
     </div>
     <div class="container">
-        <div class="header">
+      <div class="header" style="padding: 50px 0;">
             <img src="../static/img/BK .jpg" alt="Logo">
             <h1>Program Studi BK FIP UPI</h1>
         </div>
@@ -242,7 +245,91 @@ body {
             <li>Menyelenggarakan Layanan Pengabdian Kepada Masyarakat Secara Profesional Dalam Rangka Ikut Serta Menyelesaikan Masalah Nasional Dalam Bidang BK Khususnya Dan Layanan Kemanusiaan Pada Umumnya.</li>
             <li>Menjalin Kerjasama Dengan Lembaga Dan Organisasi Profesi Pada Tingkat Nasional, Regional Dan Internasional Dalam Rangka Mendapatkan Pengakuan PSBK UPI Di Kawasan Asia Tenggara.</li>
         </ul>
+        <div class="container mt-5">
+          <h1 class="text-center">Profil Mahasiswa</h1>
+      </div>
+        <div class="container mt-5">
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="card" style="width: 100%;">
+                      <div class="card-body">
+                          <h5>Enrollment Rate</h5>
+                          <h2>87%</h2>
+                          <p class="card-text">+3%</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card" style="width: 100%;">
+                      <div class="card-body">
+                          <h5>Graduation Rate</h5>
+                          <h2>78%</h2>
+                          <p class="card-text">+5%</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card" style="width: 100%;">
+                      <div class="card-body">
+                          <h5>Employment Rate</h5>
+                          <h2>92%</h2>
+                          <p class="card-text">+2%</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        <div class="container mt-5">
+          <h6 class="text-center">Presentase Mahasiswa Pertahun</h6>
+          <canvas id="densityChart" width="600" height="400"></canvas>
+          <script>
+            var ctx = document.getElementById('densityChart').getContext('2d');
+    
+            var studentData = {
+                label: 'Number of Students per Year',
+                data: [45, 48, 42, 39, 33, 30, 27, 35],
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            };
+    
+            var barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"],
+                    datasets: [studentData]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            ticks: {
+                                autoSkip: false,
+                                maxRotation: 90,
+                                minRotation: 90
+                            }
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                boxWidth: 20,
+                                padding: 15
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+      </div>
+      <div class="last-container" style="padding-bottom: 50px;">
+        <!-- Content of your navbar here -->
     </div>
+  </div>
     <footer class="footer py-5">
         <div class="container">
           <div class="row">
