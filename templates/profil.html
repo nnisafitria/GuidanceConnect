@@ -145,12 +145,12 @@ body {
                   <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
                     <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
                   </li>
-                  <li class="nav-item dropdown {% if active_page in ['profil', 'alumni'] %}active{% endif %}">
+                  <li class="nav-item dropdown {% if active_page in ['alumni_mahasiswa', 'alumni'] %}active{% endif %}">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Mahasiswa & Alumni
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ url_for('profil') }}">Profil</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('alumni_mahasiswa') }}">Profil</a></li>
                       <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
                     </ul>
                   </li>

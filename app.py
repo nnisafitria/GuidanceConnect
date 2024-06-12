@@ -38,6 +38,10 @@ def beasiswa():
 def blog():
     return render_template('blog.html')
 
+@app.route('/alumni_mahasiswa')
+def alumni_mahasiswa():
+    return render_template('mahasiswa_alumni.html')
+
 @app.route('/admin')
 def admin():
     return render_template('login.html')
