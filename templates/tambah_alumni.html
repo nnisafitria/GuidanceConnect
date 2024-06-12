@@ -44,30 +44,30 @@
     <div class="row no-gutters">
         <div class="col-md-2 bg-dark pt-4 sidebar">
             <ul class="nav flex-column nav-column mb-5">
-                <li class="nav-item">
-                    <a class="nav-link active text-white" href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+                <li class="nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+                    <a class="nav-link active text-white" href="{{ url_for('dashboard') }}"><i class="fa-solid fa-gauge"></i> Dashboard</a>
                     <hr class="custom-hr">
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="fa-solid fa-person"></i> Profil Mahasiswa</a>
+                <li class="nav-item {% if active_page == 'admin_mahasiswa' %}active{% endif %}">
+                    <a class="nav-link text-white" href="{{ url_for('admin_mahasiswa') }}"><i class="fa-solid fa-person"></i> Profil Mahasiswa</a>
                     <hr class="custom-hr">
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="fa-solid fa-circle-info"></i> Informasi
+                <li class="nav-item {% if active_page == 'admin_infobeasiswa' %}active{% endif %}">
+                    <a class="nav-link text-white" href="{{ url_for('admin_infobeasiswa') }}"><i class="fa-solid fa-circle-info"></i> Informasi
                         Beasiswa</a>
                     <hr class="custom-hr">
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="fa-solid fa-graduation-cap"></i> Alumni</a>
+                <li class="nav-item {% if active_page == 'admin_alumni' %}active{% endif %}">
+                    <a class="nav-link text-white" href="{{ url_for('admin_alumni') }}"><i class="fa-solid fa-graduation-cap"></i> Alumni</a>
                     <hr class="custom-hr">
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="fa-solid fa-blog"></i> Blog</a>
+                <li class="nav-item {% if active_page == 'admin_blog' %}active{% endif %}">
+                    <a class="nav-link text-white" href="{{ url_for('admin_blog') }}"><i class="fa-solid fa-blog"></i> Blog</a>
                     <hr class="custom-hr">
                     <hr><hr><hr><hr><hr><hr><hr><hr><hr>
-                <li class="nav-item">
+                <li class="nav-item {% if active_page == 'admin' %}active{% endif %}">
                     <hr class="custom-hr">
-                    <a class="nav-link text-white" href="#"><i class="fa-solid fa-right-from-bracket ml-2" data-bs-toggle="tooltip" title="Sign Out"></i> Sign Out</a>
+                    <a class="nav-link text-white" href="{{ url_for('admin') }}"><i class="fa-solid fa-right-from-bracket ml-2" data-bs-toggle="tooltip" title="Sign Out"></i> Sign Out</a>
                 </li>
 
                 </li>
