@@ -34,6 +34,10 @@ def advokasi():
 def beasiswa():
     return render_template('informasiBeasiswa.html')
 
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
 @app.route('/admin')
 def admin():
     return render_template('login.html')

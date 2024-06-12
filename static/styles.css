@@ -233,6 +233,11 @@ img {
     background-size: cover;
 }
 
+.card-title a {
+    color: black;
+    text-decoration: none; /* Opsional: Menghapus garis bawah pada tautan */
+}
+
 /* .wave {
     position: relative;
     width: 100%;
@@ -289,6 +294,11 @@ img {
 
 .footer p {
     font-family: 'Outfit', sans-serif;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
 }
 
 
