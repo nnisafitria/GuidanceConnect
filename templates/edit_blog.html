@@ -24,6 +24,18 @@
                 });
             });
         });
+
+        function previewImage(event) {
+            var input = event.target;
+            var reader = new FileReader();
+        
+            reader.onload = function(){
+                var img = document.getElementById('preview');
+                img.src = reader.result;
+            };
+        
+            reader.readAsDataURL(input.files[0]);
+        }
     </script>
 </head>
 
@@ -77,18 +89,19 @@
             <h3>BLOG</h3>
             <hr>
 
-            <form action="{{ url_for('tambah_blog') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url_for('edit_blog', id=blog._id) }}" method="post" enctype="multipart/form-data">
             <div class="form-group mb-3">
                 <label for="judul" class="form-label">Judul</label>
-                <input type="text" class="form-control" id="judul" placeholder="Judul" name="judul">
+                <input type="text" class="form-control" id="judul" placeholder="Judul" name="judul" value="{{ blog.nama }}">
             </div>
             <div class="form-group mb-3">
                 <label for="gambar" class="form-label">Gambar</label>
-                <input class="form-control" type="file" id="gambar" name="gambar">
+                <img id="preview" src="{{ url_for('static', filename='img/blog/' + blog.gambar) }}" alt="Preview Image" width="200">
+                <input class="form-control" type="file" id="gambar" name="gambar" onchange="previewImage(event)">
               </div>
               <div class="form-group mb-3">
                 <label for="deskripsi" class="form-label">Isi Blog</label>
-                <textarea class="form-control" id="deskripsi" rows="3" name="deskripsi"></textarea>
+                <textarea class="form-control" id="deskripsi" rows="3" name="deskripsi">{{ blog.deskripsi }}</textarea>
               </div>
             <div class="d-flex justify-content-end">
                 <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> SAVE</button>

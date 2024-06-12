@@ -1,6 +1,14 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, redirect, url_for, jsonify, render_template, request
+from pymongo import MongoClient
+from bson.objectid import ObjectId
+from werkzeug.utils import secure_filename
+import os
 
 app = Flask(__name__)
+
+MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+client = MongoClient(MONGODB_CONNECTION_STRING)
+db = client.dbmypbb
 
 @app.route('/')
 def index():
@@ -68,11 +76,65 @@ def tambah_alumni():
 
 @app.route('/admin_blog')
 def admin_blog():
-    return render_template('admin_blog.html')
+    blogs = list(db.blogs.find({}))
+    return render_template('admin_blog.html',blogs=blogs)
 
-@app.route('/tambah_blog')
+@app.route('/tambah_blog', methods=['GET', 'POST'])
 def tambah_blog():
+    if request.method == 'POST':
+        judul = request.form.get('judul')
+        deskripsi = request.form.get('deskripsi')
+        gambar = request.files.get('gambar')
+
+        if not judul or not gambar or not deskripsi:
+            return jsonify({"msg": 'Semua field harus diisi'})
+
+        if gambar:
+            filename = gambar.filename
+            file_path = os.path.join('static/img/blog', filename)
+            gambar.save(file_path)
+        else:
+            filename = None
+
+        doc = {
+            'nama':judul,
+            'gambar':filename,
+            'deskripsi':deskripsi
+        }
+        db.blogs.insert_one(doc)
+
+        success = "Data berhasil ditambahkan"
+        return redirect(url_for("admin_blog"))
     return render_template('tambah_blog.html')
+
+@app.route('/edit_blog/<id>', methods=['GET', 'POST'])
+def edit_blog(id):
+    if request.method == 'POST':
+        judul = request.form.get('judul')
+        deskripsi = request.form.get('deskripsi')
+        gambar = request.files.get('gambar')
+        
+        doc = {
+            'nama':judul,
+            'deskripsi':deskripsi
+        }
+
+        if gambar:
+            filename = (gambar.filename)
+            file_path = os.path.join('static/img/blog', filename)
+            gambar.save(file_path)
+            doc['gambar'] = filename
+
+        db.blogs.update_one({'_id': ObjectId(id)}, {"$set": doc})
+        return redirect(url_for("admin_blog"))
+    
+    blog = db.blogs.find_one({'_id': ObjectId(id)})
+    return render_template('edit_blog.html', blog=blog)
+
+@app.route('/delete/<id>', methods=['POST'])
+def delete_blog(id):
+    db.blogs.delete_one({'_id': ObjectId(id)})
+    return redirect(url_for('admin_blog'))
 
 @app.route('/admin_infobeasiswa')
 def admin_infobeasiswa():
