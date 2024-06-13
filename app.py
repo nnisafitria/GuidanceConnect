@@ -12,7 +12,8 @@ db = client.dbmypbb
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    blogs = list(db.blogs.find({}))
+    return render_template('index.html',blogs=blogs)
 
 @app.route('/profil')
 def profil():
@@ -90,7 +91,7 @@ def tambah_blog():
             return jsonify({"msg": 'Semua field harus diisi'})
 
         if gambar:
-            filename = gambar.filename
+            filename = secure_filename(gambar.filename)
             file_path = os.path.join('static/img/blog', filename)
             gambar.save(file_path)
         else:
@@ -103,7 +104,6 @@ def tambah_blog():
         }
         db.blogs.insert_one(doc)
 
-        success = "Data berhasil ditambahkan"
         return redirect(url_for("admin_blog"))
     return render_template('tambah_blog.html')
 
