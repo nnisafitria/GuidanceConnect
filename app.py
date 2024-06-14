@@ -159,9 +159,9 @@ def tambah_beasiswa():
             filename = None
 
         doc = {
-            'nama':namabeasiswa,
-            'gambar':filename,
-            'deskripsi':deskripsidanpersyaratan
+            'namabeasiswa':namabeasiswa,
+            'gambarbeasiswa':filename,
+            'deskripsidanpersyaratan':deskripsidanpersyaratan
         }
         db.infos.insert_one(doc)
 
