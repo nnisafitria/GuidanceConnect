@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, jsonify, render_template, request
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from datetime import datetime
 from werkzeug.utils import secure_filename
 import os
 
@@ -43,10 +44,10 @@ def advokasi():
 def beasiswa():
     return render_template('informasiBeasiswa.html')
 
-@app.route('/blog', methods=['GET'])
-def blog():
-    blogs = list(db.blogs.find({}))
-    return render_template('blog.html',blogs=blogs)
+@app.route('/blog/<id>', methods=['GET'])
+def blog(id):
+    blog = db.blogs.find_one({'_id': ObjectId(id)})
+    return render_template('blog.html', blog=blog)
 
 @app.route('/alumni_mahasiswa')
 def alumni_mahasiswa():
@@ -98,10 +99,14 @@ def tambah_blog():
         else:
             filename = None
 
+        waktu_sekarang = datetime.now()
+        waktu_format = waktu_sekarang.strftime('%Y-%m-%d')
+
         doc = {
             'nama':judul,
             'gambar':filename,
-            'deskripsi':deskripsi
+            'deskripsi':deskripsi,
+            'time': waktu_format
         }
         db.blogs.insert_one(doc)
 

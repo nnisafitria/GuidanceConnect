@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../static/styles.css">
@@ -63,11 +64,12 @@
       </div>
     </nav>
 
-    <div class="blogs">
+    <div data-url="{{ url_for('blog', id=blog._id) }}">
+    <div class="blogs" style="background-image: url('../static/img/blog/{{ blog.gambar }}');">
         <div class="content">
-            <h1>(Judul Blog)</h1>
+            <h1>{{ blog.nama }}</h1>
             <hr>
-            <p>POSTED ON 01 - 04 - 2023</p>
+            <p>POSTED ON {{ blog.time }}</p>
         </div>
     </div>
 
@@ -75,56 +77,15 @@
     <div class="text">
         <div class="inner-text">
             <div class="container">
-                <h2><strong>HARVARD COLLEGE ADMISSIONS & FINANCIAL AID</strong></h2>
-                <p>Dear Yohanna,
-                    <br>
-                    … I am very sorry to inform you that we cannot offer you admission to the class of 2027.
-                    <br>
-                    Deg. Sudah kuduga. Waktu itu rasanya tidak terlalu terkejut sebenarnya. Iya, pemberitahuan di atas
-                    menyatakan kegagalanku (lagi), entah yang ke berapa kalinya. Kecewa? Banyak bukan lagi sedikit.
-                    Marah? Apalagi sama diri sendiri. Meski begitu, Papaku sempat bilang, “lebih baik gagal daripada
-                    menyesal tidak pernah mencoba.” Tahun lalu aku menyibukkan diri dengan persiapan pendaftaran kuliah
-                    ke luar negeri, spesifiknya ke Harvard dan Stanford University. Siapa yang pernah menduga, ternyata
-                    aku, si anak sulung calon first generation (generasi pertama yang akan menempuh perkuliahan) membuka
-                    jalan untuk adik-adik tingkat di sekolahnya untuk mendaftarkan kuliah ke luar negeri tanpa berbekal
-                    apa pun, kecuali keinginan dan tekad.
-                    Surat rekomendasi beberapa guru, berbagai macam esai, portal Common App dan College Board, tes
-                    Scholastic Aptitude Test (SAT), penyetaraan Bahasa Inggris melalui IELTS, dokumen pendukung dalam
-                    Bahasa Inggris, dan tumpukan dokumen lain yang harus dikumpulkan dalam waktu terbatas adalah pikiran
-                    di alam lainku, selain harus menyelesaikan UAS dan US. Karena pikiran-pikiran itu, Yohanna, anak
-                    yang paling nekad ini, akhirnya punya jam tidur yang super berantakan. Hampir setiap hari hobinya
-                    tidur jam 2-3 pagi untuk menyelesaikan dokumen persyaratan pendaftaran. Belum lagi tugas akhir yang
-                    sifatnya project-based, pentas seni, ekstrakurikuler paduan suara, dan common myth lain yang menjadi
-                    ekspektasi orang-orang untuk para applicant yang kuliah ke luar negeri. Luar biasa.
-                    Rasa-rasanya, waktu itu berat sekali. Seperti yang sudah ku bilang, jam tidur yang berantakan,
-                    koneksi sosial menjadi terbatas, pola makan tidak beraturan, dan beragam informasi lain yang
-                    sebenarnya agak mendidihkan pikiran di sosial media, overwhelmed. Bermimpi bisa menginjakkan kaki di
-                    kampus impianku adalah satu-satunya yang menjadi alasanku bertahan memperjuangkan prosesnya. Tapi,
-                    siapa yang tahu, kalau meskipun aku gagal, aku sempat berbincang dengan alumni Stanford di sesi
-                    wawancara dalam Bahasa Inggris. Seingatku, kami bertemu di Blue Doors 2, dekat daerah Paris Van Java
-                    (PVJ). Menarik sekali pokoknya saat berbincang dengan beliau apalagi dalam Bahasa Inggris. Kacamata
-                    perspektif akan belajar di luar negeri dari beliau semakin membuatku tertarik untuk pergi ke sana.
-                    Lalu, kalau aku tarik lebih jauh lagi ke belakang, sejujurnya kegagalanku ini membuat aku belajar
-                    dan mengenal sangat banyak hal baru. Kalau ngga daftar kuliah ke luar negeri, mungkin aku ngga akan
-                    pernah tahu rasanya punya mentor dari Jepang, Australia, Inggris, dan Amerika. Kalau ngga daftar
-                    kuliah ke luar negeri, mungkin aku ngga akan pernah tahu rasanya revisi, proofreading dan mengulang
-                    topik esai yang baru di jam 10 malam. Kalau ngga daftar kuliah ke luar negeri, mungkin aku ngga akan
-                    pernah tahu rasanya paham dan punya wawasan yang lebih maju dari teman-temanku tentang portal
-                    pendaftaran kuliah di luar negeri karena aku sudah riset banyak tentang itu. Kalau ngga daftar
-                    kuliah ke luar negeri, mungkin aku ngga akan pernah tahu rasanya dapet surat rekomendasi dari
-                    guru-guru penting dan kepala sekolah yang sangat suportif.
-                    <br>
-                    <br>
-                    Salam sayang,
-                    Yoyo.
-                    <br>
-                    <br>
-                    Tags: #HimaBK2023 #KabinetKaryaAksata #BerkaryaSepanjangMasa #KaryaKMBK</p>
+                <h2><strong>{{ blog.nama }}</strong></h2>
+                <p>
+                  {{ blog.deskripsi }}
                 </p>
             </div>
         </div>
 
     </div>
+  </div>
 
     <section id="comments-section">
         <div class="container">
