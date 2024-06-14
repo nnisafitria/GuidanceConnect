@@ -88,6 +88,34 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for info in infos %}
+                    <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ info.nama }}</td>
+                        <td><img src="../static/img/info beasiswa.png" alt="" width="100"/></td>
+                        <td>{{ info.deskripsi }}</td>
+                        <td>
+                            <form action="/edit_info/{{info._id}}">
+                            <button type="submit" class="btn btn-warning">
+                            <i class="fa-solid fa-pen-to-square bg-warning p-2 text-white rounded"
+                                data-bs-toggle="tooltip" title="Edit"></i>
+                            </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/delete/{{ info._id }}" method="post" onsubmit="return confirm('Apakah Anda yakin ingin menghapus informasi ini?')">
+                            <button type="submit" class="btn btn-danger">
+                            <i class="fa-solid fa-trash bg-danger p-2 text-white rounded" data-bs-toggle="tooltip"
+                                title="Delete"></i>
+                            </button>
+                            </a>
+                            </form>
+                        </td>
+                            
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
                     <tr>
                         <th scope="row">1</th>
                         <td>IKA UPI</td>
