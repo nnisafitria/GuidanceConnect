@@ -43,9 +43,9 @@ def advokasi():
 def beasiswa():
     return render_template('informasiBeasiswa.html')
 
-@app.route('/blog/<id>', methods=['GET'])
-def blog(id):
-    blogs = db.blogs.find_one({'_id': ObjectId(id)})
+@app.route('/blog', methods=['GET'])
+def blog():
+    blogs = list(db.blogs.find({}))
     return render_template('blog.html',blogs=blogs)
 
 @app.route('/alumni_mahasiswa')
@@ -149,12 +149,9 @@ def tambah_beasiswa():
         deskripsidanpersyaratan = request.form.get('deskripsi dan persyaratan')
         gambarbeasiswa = request.files.get('gambar beasiswa')
 
-        if not namabeasiswa or not gambarbeasiswa or not deskripsidanpersyaratan:
-            return jsonify({"msg": 'Semua field harus diisi'})
-
         if gambarbeasiswa:
             filename = secure_filename(gambarbeasiswa.filename)
-            file_path = os.path.join('static/img/info beasiswa', filename)
+            file_path = os.path.join('GuidanceConnect/static/img/beasiswa', filename)
             gambarbeasiswa.save(file_path)
         else:
             filename = None
@@ -184,7 +181,7 @@ def edit_info(id):
 
         if gambarbeasiswa:
             filename = (gambarbeasiswa.filename)
-            file_path = os.path.join('static/img/info beasiswa', filename)
+            file_path = os.path.join('GuidanceConnect/static/img/beasiswa', filename)
             gambarbeasiswa.save(file_path)
             doc['gambarbeasiswa'] = filename
 
@@ -194,7 +191,7 @@ def edit_info(id):
     info = db.infos.find_one({'_id': ObjectId(id)})
     return render_template('edit_blog.html', info=info)
 
-@app.route('/delete/<id>', methods=['POST'])
+@app.route('/delete_info/<id>', methods=['POST'])
 def delete_info(id):
     db.infos.delete_one({'_id': ObjectId(id)})
     return redirect(url_for('admin_infobeasiswa'))
