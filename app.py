@@ -168,6 +168,8 @@ def tambah_beasiswa():
         return redirect(url_for("admin_infobeasiswa"))
     return render_template('tambah_beasiswa.html')
 
+@app.route('/tambah_beasiswa', methods=['GET', 'POST'])
+
 @app.route('/edit_info/<id>', methods=['GET', 'POST'])
 def edit_info(id):
     if request.method == 'POST':
