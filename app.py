@@ -43,9 +43,10 @@ def advokasi():
 def beasiswa():
     return render_template('informasiBeasiswa.html')
 
-@app.route('/blog')
-def blog():
-    return render_template('blog.html')
+@app.route('/blog/<id>', methods=['GET'])
+def blog(id):
+    blogs = db.blogs.find_one({'_id': ObjectId(id)})
+    return render_template('blog.html',blogs=blogs)
 
 @app.route('/alumni_mahasiswa')
 def alumni_mahasiswa():
@@ -92,7 +93,7 @@ def tambah_blog():
 
         if gambar:
             filename = secure_filename(gambar.filename)
-            file_path = os.path.join('static/img/blog', filename)
+            file_path = os.path.join('GuidanceConnect/static/img/blog', filename)
             gambar.save(file_path)
         else:
             filename = None
@@ -121,7 +122,7 @@ def edit_blog(id):
 
         if gambar:
             filename = (gambar.filename)
-            file_path = os.path.join('static/img/blog', filename)
+            file_path = os.path.join('GuidanceConnect/static/img/blog', filename)
             gambar.save(file_path)
             doc['gambar'] = filename
 
