@@ -12,7 +12,8 @@ db = client.dbmypbb
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    blogs = list(db.blogs.find({}))
+    return render_template('index.html',blogs=blogs)
 
 @app.route('/profil')
 def profil():
@@ -90,7 +91,7 @@ def tambah_blog():
             return jsonify({"msg": 'Semua field harus diisi'})
 
         if gambar:
-            filename = gambar.filename
+            filename = secure_filename(gambar.filename)
             file_path = os.path.join('static/img/blog', filename)
             gambar.save(file_path)
         else:
@@ -103,7 +104,6 @@ def tambah_blog():
         }
         db.blogs.insert_one(doc)
 
-        success = "Data berhasil ditambahkan"
         return redirect(url_for("admin_blog"))
     return render_template('tambah_blog.html')
 
@@ -138,11 +138,64 @@ def delete_blog(id):
 
 @app.route('/admin_infobeasiswa')
 def admin_infobeasiswa():
-    return render_template('admin_infobeasiswa.html')
+    infos = list(db.infos.find({}))
+    return render_template('admin_infobeasiswa.html',infos=infos)
 
 @app.route('/tambah_beasiswa')
 def tambah_beasiswa():
+    if request.method == 'POST':
+        namabeasiswa= request.form.get('nama beasiswa')
+        deskripsidanpersyaratan = request.form.get('deskripsi dan persyaratan')
+        gambarbeasiswa = request.files.get('gambar beasiswa')
+
+        if not namabeasiswa or not gambarbeasiswa or not deskripsidanpersyaratan:
+            return jsonify({"msg": 'Semua field harus diisi'})
+
+        if gambarbeasiswa:
+            filename = secure_filename(gambarbeasiswa.filename)
+            file_path = os.path.join('static/img/info beasiswa', filename)
+            gambarbeasiswa.save(file_path)
+        else:
+            filename = None
+
+        doc = {
+            'namabeasiswa':namabeasiswa,
+            'gambarbeasiswa':filename,
+            'deskripsidanpersyaratan':deskripsidanpersyaratan
+        }
+        db.infos.insert_one(doc)
+
+        return redirect(url_for("admin_infobeasiswa"))
     return render_template('tambah_beasiswa.html')
+
+@app.route('/edit_info/<id>', methods=['GET', 'POST'])
+def edit_info(id):
+    if request.method == 'POST':
+        namabeasiswa = request.form.get('namabeasiswa')
+        deskripsidanpersyaratan = request.form.get('deskripsidanpersyaratan')
+        gambarbeasiswa = request.files.get('gambarbeasiswa')
+        
+        doc = {
+            'nama':namabeasiswa,
+            'deskripsi':deskripsidanpersyaratan
+        }
+
+        if gambarbeasiswa:
+            filename = (gambarbeasiswa.filename)
+            file_path = os.path.join('static/img/info beasiswa', filename)
+            gambarbeasiswa.save(file_path)
+            doc['gambarbeasiswa'] = filename
+
+        db.infos.update_one({'_id': ObjectId(id)}, {"$set": doc})
+        return redirect(url_for("admin_infobeasiswa"))
+    
+    info = db.infos.find_one({'_id': ObjectId(id)})
+    return render_template('edit_blog.html', info=info)
+
+@app.route('/delete/<id>', methods=['POST'])
+def delete_info(id):
+    db.infos.delete_one({'_id': ObjectId(id)})
+    return redirect(url_for('admin_infobeasiswa'))
 
 @app.route('/semester1')
 def semester1():

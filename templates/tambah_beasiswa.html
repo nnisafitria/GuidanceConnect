@@ -77,21 +77,26 @@
             <h3>INFORMASI BEASISWA</h3>
             <hr>
 
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Nama Beasiswa</label>
-                <input type="number" class="form-control" id="nim" placeholder="Nama Beasiswa">
-            </div>
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Gambar</label>
-                <input class="form-control" type="file" id="formFile">
-              </div>
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Deskripsi dan Persyaratan</label>
-                <input type="text" class="form-control" id="nama" placeholder="Deskripsi dan Persyaratan">
-            </div>
-            <div class="d-flex justify-content-end">
-                <a href="" class="btn btn-primary"><i class="fa-solid fa-plus"></i> SAVE</a>
+            <form action="{{ url_for('tambah_beasiswa') }}" method="post" enctype="multipart/form-data">
+                <div class="form-group mb-3">
+                    <label for="nama beasiswa" class="form-label">Nama Beasiswa</label>
+                    <input type="text" class="form-control" id="nama beasiswa" placeholder="Nama Beasiswa" name="Nama Beasiswa">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="gambar beasiswa" class="form-label">Gambar</label>
+                    <input class="form-control" type="file" id="gambar beasiswa" name="gambar beasiswa">
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="deskripsi dan persyaratan" class="form-label">Deskripsi dan Persyaratan</label>
+                    <textarea class="form-control" id="deskripsi dan persyaratan" rows="3" name="deskripsi dan persyaratan"></textarea>
+                  </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> SAVE</button>
+                </div>
+                </form>
             </div>
         </div>
-    </div>
+        {% if msg %}
+            alert("{{ msg }}")
+        {% endif %}
 </body>

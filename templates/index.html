@@ -157,76 +157,18 @@
       </h2>
       <div id="carouselExample" class="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          {% for blog in blogs %}
+          <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
             <div class="card">
               <div class="img-wrapper">
-                <img src="../static/img/mypbb.jpg" alt="...">
+                <img src="../static/img/blog/{{ blog.gambar }}" alt="Slide {{ loop.index }}">
               </div>
               <div class="card-body">
-                <h5 class="card-title"><a href="{{ url_for('blog') }}">Card title</a></h5>
+                <h5 class="card-title"><a href="{{ url_for('blog') }}">{{ blog.nama }}</a></h5>
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="card">
-              <div class="img-wrapper">
-                <img src="../static/img/mypbb.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="{{ url_for('blog') }}">Card title</a></h5>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card">
-              <div class="img-wrapper">
-                <img src="../static/img/mypbb.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="{{ url_for('blog') }}">Card title</a></h5>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item active">
-            <div class="card">
-              <div class="img-wrapper">
-                <img src="../static/img/mypbb.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="{{ url_for('blog') }}">Card title</a></h5>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card">
-              <div class="img-wrapper">
-                <img src="../static/img/mypbb.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="{{ url_for('blog') }}">Card title</a></h5>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card">
-              <div class="img-wrapper">
-                <img src="../static/img/mypbb.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="{{ url_for('blog') }}">Card title</a></h5>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item active">
-            <div class="card">
-              <div class="img-wrapper">
-                <img src="../static/img/mypbb.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="{{ url_for('blog') }}">Card title</a></h5>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
