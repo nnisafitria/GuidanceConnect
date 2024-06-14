@@ -59,13 +59,42 @@ def admin():
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route('/admin_mahasiswa')
+@app.route('/admin_mahasiswa', methods=['GET'])
 def admin_mahasiswa():
-    return render_template('admin_mahasiswa.html')
+    students = list(db.students.find({}))
+    return render_template('admin_mahasiswa.html', students=students)
 
-@app.route('/tambah_mahasiswa')
+@app.route('/tambah_mahasiswa', methods=['GET', 'POST'])
 def tambah_mahasiswa():
+    if request.method == 'POST':
+        nim = request.form.get('nim')
+        nama = request.form.get('nama')
+        
+        if nim and nama:
+            db.students.insert_one({'nim': nim, 'nama': nama})
+        
+        return redirect(url_for('admin_mahasiswa'))
+    
     return render_template('tambah_mahasiswa.html')
+
+@app.route('/edit_mahasiswa/<student_id>', methods=['GET', 'POST'])
+def edit_mahasiswa(student_id):
+    student = db.students.find_one({'_id': ObjectId(student_id)})
+    
+    if request.method == 'POST':
+        nim = request.form.get('nim')
+        nama = request.form.get('nama')
+        
+        if nim and nama:
+            db.students.update_one({'_id': ObjectId(student_id)}, {'$set': {'nim': nim, 'nama': nama}})
+            return redirect(url_for('admin_mahasiswa'))
+    
+    return render_template('edit_mahasiswa.html', student=student)
+
+@app.route('/delete_mahasiswa/<student_id>', methods=['GET'])
+def delete_mahasiswa(student_id):
+    db.students.delete_one({'_id': ObjectId(student_id)})
+    return redirect(url_for('admin_mahasiswa'))
 
 @app.route('/admin_alumni')
 def admin_alumni():
