@@ -76,8 +76,7 @@
         <div class="col-md-10 p-5 pt-2 main-content">
             <h3>PROFIL MAHASISWA</h3>
             <hr>
-
-            <table class="table table-striped table-bordered">
+             <table class="table table-striped table-bordered mt-4">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
@@ -87,33 +86,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for student in students %}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>J0303211152</td>
-                        <td>Jhon Doe</td>
-                        <td><i class="fa-solid fa-pen-to-square bg-warning p-2 text-white rounded"
-                                data-bs-toggle="tooltip" title="Edit"></i></td>
-                        <td><i class="fa-solid fa-trash bg-danger p-2 text-white rounded" data-bs-toggle="tooltip"
-                                title="Delete"></i></td>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ student.nim }}</td>
+                        <td>{{ student.nama }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_mahasiswa', student_id=student._id) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('delete_mahasiswa', student_id=student._id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>J0303211153</td>
-                        <td>Jane Smith</td>
-                        <td><i class="fa-solid fa-pen-to-square bg-warning p-2 text-white rounded"
-                                data-bs-toggle="tooltip" title="Edit"></i></td>
-                        <td><i class="fa-solid fa-trash bg-danger p-2 text-white rounded" data-bs-toggle="tooltip"
-                                title="Delete"></i></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>J0303211154</td>
-                        <td>Lorem Ipsum</td>
-                        <td><i class="fa-solid fa-pen-to-square bg-warning p-2 text-white rounded"
-                                data-bs-toggle="tooltip" title="Edit"></i></td>
-                        <td><i class="fa-solid fa-trash bg-danger p-2 text-white rounded" data-bs-toggle="tooltip"
-                                title="Delete"></i></td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
