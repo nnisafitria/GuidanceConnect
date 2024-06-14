@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, jsonify, render_template, request, hashlib, jwt, datetime, timedelta
+from flask import Flask, redirect, url_for, jsonify, render_template, request
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from werkzeug.utils import secure_filename
@@ -220,100 +220,6 @@ def semester5():
 @app.route('/semester6')
 def semester6():
     return render_template('semester6.html')
-
-@app.route('/', methods=['GET'])
-def home():
-        token_recieve = request.cookies.gey('mytoken')
-        try:
-            payload = jwt.decode(
-            token_recieve, 
-            SECRET_KEY, 
-            algorithms=['HS256']
-            )
-            admin_info = db.admin.find_one({'id': payload['id']})
-            return render_template('admin.html', nickname=admin_info['nick'])
-        except jwt.ExpiredSignatureError:
-            return redirect(url_for('login', msg="Token login anda telah kedaluwarsa"))
-        except jwt.exceptions.DecodeError:
-            return redirect(url_for(
-            'login',
-            msg="Ada masalah saat masuk"
-        ))
-
-@app.route('/admin', methods=['GET'])
-def admin():
-    msg = request.args.get('msg')
-    return render_template('login.html', msg=msg)
-
-@app.route('/register', methods=['GET'])
-def register():
-    return render_template('register.html')
-
-@app.route('/api/register', methods=['POST'])
-def api_register():
-    id_recieve = request.form.get('id_give')
-    pw_recieve = request.form.get('pw_give')
-    nickname_recieve = request.form.get('nickname_give')
-    
-    pw_hash = hashlib.sha256(pw_recieve.encode('utf-8')).hexdigest()
-    db.user.insert_one({
-      'id': id_recieve,
-      'pw': pw_hash,
-      'nick': nickname_recieve, 
-    })
-    
-    return jsonify({
-        'result': 'success'})
-    
-@app.route('/api/login', methods=['POST'])
-def api_login():
-        id_recieve = request.form.get('id_give')
-        pw_recieve = request.form.get('pw_give')
-        pw_hash = hashlib.sha256(pw_recieve.encode('utf-8')).hexdigest()
-        result = db.admin.find_one({
-            'id': id_recieve,
-            'pw': pw_recieve
-        })
-        if result:
-            payload = {
-                'id': id_recieve,
-                'exp': datetime.utcnow() + timedelta(seconds=1)
-            }
-            token = jwt.encode(
-                payload,
-                SECRET_KEY,
-                algorithms=['HS256']
-            )
-            return jsonify({
-                'result': 'success',
-                'token': token
-            })
-        else:
-            return jsonify({
-                'result': 'fail',
-                'msg': 'Baik id atau kata sandi anda salah', 
-            })
-@app.route('/api/nick', methods=['GET'])
-def api_valid():
-    token_recieve = request.cookies.get('mytoken')
-    try:
-        payload = jwt.decode(
-            token_recieve,
-            SECRET_KEY,
-            algorithms=['HS256']
-        )
-        print(payload)
-        admin_info = db.admin.find_one({'id': payload.get('id')}, {'_id': 0})
-        return jsonify({
-            'result': 'success',
-            'nickname': admin_info.get('nick')
-        })
-    except jwt.ExpiredSignatureError:
-        msg = "Token login anda telah kedaluwarsa"
-        return jsonify({'result': 'fail', 'msg': msg})
-    except jwt.exceptions.DecodeError:
-        msg="Ada masalah saat masuk"
-        return jsonify({'result': 'fail', 'msg': msg})
 
 if __name__ == '__main__':
     app.run(port=5000,debug=True)
