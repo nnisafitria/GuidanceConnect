@@ -142,7 +142,7 @@ def admin_infobeasiswa():
     infos = list(db.infos.find({}))
     return render_template('admin_infobeasiswa.html',infos=infos)
 
-@app.route('/tambah_beasiswa')
+@app.route('/tambah_beasiswa', methods=['GET', 'POST'])
 def tambah_beasiswa():
     if request.method == 'POST':
         namabeasiswa= request.form.get('nama beasiswa')
@@ -168,6 +168,7 @@ def tambah_beasiswa():
 
         return redirect(url_for("admin_infobeasiswa"))
     return render_template('tambah_beasiswa.html')
+
 
 @app.route('/edit_info/<id>', methods=['GET', 'POST'])
 def edit_info(id):
