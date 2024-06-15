@@ -9,7 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    <link rel="stylesheet" href="../static/styles.css">
+    
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
@@ -22,95 +23,103 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-    }
-    body p h1{
-      font-family: 'DM Sans', sans-serif;
-    }
-    .profile-section {
-        padding: 2rem;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .student {
-        padding: 1rem;
-        background-color: #84b4c4;
-        border-radius: 4px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .mypic {
+        width: 100%;
+        height: 450px;
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../static/img/forum.jpg');
+        background-position: center 30%;
+        background-size: cover;
+        color: white;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-    }
+        align-items: center;
+        justify-content: center;
+      }
 
-    .card {
-      border: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 1rem;
-      transition: transform 0.2s ease-in-out;
-      margin:0%
-  }
+      .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+        transition: transform 0.2s ease-in-out;
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex; /* Menggunakan flexbox untuk menyusun konten dalam kartu */
+      }
 
-  .card:hover {
-      transform: translateY(-7px);
-  }
+      .card:hover {
+        transform: translateY(-7px);
+      }
 
-  .card-title {
-      font-size: 1.25rem;
-      font-weight: bold;
-  }
-  
-.mypic {
-    width: 100%;
-    height: 450px;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../static/img/forum.jpg');
-    background-position: center 30%;
-    background-size: cover;
+      .card-title {
+        font-size: 1.15rem;
+        font-weight: bold;
+      }
+      
+      .custom-link {
+        color: #3498db;
+        text-decoration: none;
+        padding: 5px 5px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+        font-family: 'Outfit', sans-serif;
+      }
 
-    color: white;
+      .custom-link:hover {
+        background-color: #3498db;
+        color: white;
+      }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.judul{
-  font-family: 'DM Sans', sans-serif;
-}
-.footer {
-  background-color: #619196;
-  color: white;
-  padding: 20px;
-}
+      .footer {
+        background-color: #619196;
+        color: white;
+        padding: 20px;
+      }
 
-.footer h3 {
-  font-family: 'Quicksand', sans-serif;
-}
+      .footer h3 {
+        font-family: 'Quicksand', sans-serif;
+      }
 
-.footer p {
-  font-family: 'Outfit', sans-serif;
-}
+      .footer p {
+        font-family: 'Outfit', sans-serif;
+      }
 
-.footer .contact-info, .footer .social-media {
-  text-align: center;
-}
+      .footer .contact-info, .footer .social-media {
+        text-align: center;
+      }
 
-.footer .aspiration {
-  text-align: left;
-}
+      .footer .aspiration {
+        text-align: left;
+      }
 
-.footer .social-media {
-  text-align: right;
-}
+      .footer .social-media {
+        text-align: right;
+      }
 
-.footer .row.mt-5 {
-  margin-top: 3rem;
-}
+      .footer .row.mt-5 {
+        margin-top: 3rem;
+      }
 
+      /* Menyesuaikan tinggi gambar agar seragam */
+      .card-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px; /* Atur tinggi maksimum gambar */
+        overflow: hidden; /* Menggunakan overflow untuk memotong gambar */
+      }
 
+      .card-img img {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* Untuk mempertahankan aspek ratio gambar */
+      }
     </style>
 </head>
 <body>
-    
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container">
@@ -155,109 +164,111 @@
             </div>
           </div>
         </nav>
-
     </header>
     <div>
-      <div class="mypic" style="text-align: center;">
-        <h1>GuidanceConnect Forum</h1>
+      <div class="mypic" style="text-align: center; ">
+        <h1>Myppb</h1>
         <p style="padding: 0 90px;">“GuidanceConnect Forum” adalah salah satu fasilitas yang memungkinkan kamu bertanya kepada kakak tingkat dan alumni jurusan Bimbingan dan Konseling UPI. Forum ini diwadahi menggunakan aplikasi Whatsapp yang dibagi-bagi berdasarkan topik. (Tempat Bekerja, perlombaan, dsb.)</p>
-    </div>     
+      </div>     
     </div>
+    <div style="padding-top: 80px;"></div>
     <div class="container my-3">
-        <div class="row align-items-center">
-          <div class="col-lg-9 mx-auto">
-            <div class="card" style="padding: 5px;">  <div class="row g-0 d-flex">
-                <div class="col-3">
-                  <img src="https://greatdayhr.com/wp-content/uploads/2020/11/silver-letters-glass-building-facade_145275-162-jpg.webp" alt="..." class="rounded-start" style="max-width: 100%; height: 100px; width: 150px;">
-                </div>
-                <div class="col-9 px-2">
-                  <div class="card-body">
-                    <h5 class="card-title">Bekerja di Perusahaan</h5>
-                    <a class="nav-link" href="#">Link</a>
+      <div class="row justify-content-center">
+          <div class="col-lg-6">
+              <div class="card">
+                  <div class="row g-0 d-flex">
+                      <div class="col-3">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRptjwulUHWYzg2ExyKNaO9_04SdoBBgkjfew&s" alt="..." class="img-fluid">
+                      </div>
+                      <div class="col-9 px-2">
+                          <div class="card-body">
+                              <h4 class="card-title">Bekerja di Perusahaan</h4>
+                              <a class="custom-link" href="#">Link</a>
+                          </div>
+                      </div>
                   </div>
-                </div>
               </div>
-            </div>
           </div>
-        </div>
-        </div>
-        <div class="container my-3">
-            <div class="row align-items-center">
-              <div class="col-lg-9 mx-auto">
-                <div class="card" style="padding: 5px;">  <div class="row g-0 d-flex">
-                    <div class="col-3">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Hibbing_High_School_2014.jpg/1200px-Hibbing_High_School_2014.jpg" alt="..." class="rounded-start" style="max-width: 100%; height: 100px; width: 150px;">
-                    </div>
-                    <div class="col-9 px-2">
-                      <div class="card-body">
-                        <h5 class="card-title">Bekerja di Sekolah</h5>
-                        <a class="nav-link" href="#">Link</a>
-                      </div>
-                    </div>
+      </div>
+  </div>
+
+<div class="container my-3">
+  <div class="row justify-content-center">
+      <div class="col-lg-6">
+          <div class="card">
+              <div class="row g-0 d-flex">
+                  <div class="col-3">
+                      <img src="https://www.shutterstock.com/image-photo/schoolyard-basketball-court-school-building-600nw-2144841935.jpg" alt="..." class="img-fluid">
                   </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="container my-3">
-            <div class="row align-items-center">
-              <div class="col-lg-9 mx-auto">
-                <div class="card" style="padding: 5px;">  <div class="row g-0 d-flex">
-                    <div class="col-3">
-                      <img src="https://cultureofyes.ca/wp-content/uploads/2019/02/competitiontcs.jpg" alt="..." class="rounded-start" style="max-width: 100%; height: 100px; width: 150px;">
-                    </div>
-                    <div class="col-9 px-2">
+                  <div class="col-9 px-2">
                       <div class="card-body">
-                        <h5 class="card-title">Lomba lomba</h5>
-                        <a class="nav-link" href="#">Link</a>
+                          <h4 class="card-title">Bekerja di Sekolah</h4>
+                          <a class="custom-link" href="#">Link</a>
                       </div>
-                    </div>
                   </div>
-                </div>
               </div>
-            </div>
-        </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="container my-3">
+  <div class="row justify-content-center">
+      <div class="col-lg-6">
+          <div class="card">
+              <div class="row g-0 d-flex">
+                  <div class="col-3">
+                      <img src="https://static.vecteezy.com/system/resources/thumbnails/033/642/442/small_2x/champion-golden-trophy-neural-network-ai-generated-photo.jpg" alt="..." class="img-fluid">
+                  </div>
+                  <div class="col-9 px-2">
+                      <div class="card-body">
+                          <h4 class="card-title">Lomba-lomba</h4>
+                          <a class="custom-link" href="#">Link</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+        <div style="padding-top: 80px;"></div>
         <footer class="footer py-5">
           <div class="container">
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="aspiration">
-                  <h3>Curahan Aspirasi</h3>
-                  <p>Curahan aspirasi ini adalah fitur untuk KMBK untuk menyampaikan aspirasi. Penerima pesan ini adalah Badan
-                    Aspirasi DPM BK, lalu disalurkan kepada pihak terkait.</p>
-                  <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                      style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Comments</label>
+              <div class="row">
+                  <div class="col-lg-4">
+                      <div class="aspiration">
+                          <h3>Curahan Aspirasi</h3>
+                          <p>Curahan aspirasi ini adalah fitur untuk KMBK untuk menyampaikan aspirasi. Penerima pesan ini adalah Badan Aspirasi DPM BK, lalu disalurkan kepada pihak terkait.</p>
+                          <div class="form-floating">
+                              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                              <label for="floatingTextarea2">Comments</label>
+                          </div>
+                          <br>
+                          <button class="btn btn-light">Ajukan Disini!</button>
+                      </div>
                   </div>
-                  <br>
-                  <button class="btn btn-light">Ajukan Disini!</button>
+                  <div class="col-lg-4 d-flex justify-content-center">
+                      <div class="contact-info text-center">
+                          <h3>Hubungi Kami</h3>
+                          <p>anisa.n2202 (Anisa Nurwulan)</p>
+                          <p>Mail: himabk@upi.edu</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 d-flex justify-content-end">
+                      <div class="social-media text-right">
+                          <h3>Social Media</h3>
+                          <p>Instagram: <a href="https://www.instagram.com/himabkupi/">@himabkupi</a></p>
+                          <p>Facebook: <a href="https://www.facebook.com/himabk.dppb.upi/?locale=id_ID">HIMA BK UPI</a></p>
+                          <p>TikTok: <a href="https://www.tiktok.com/@prodibk.upi">HIMA BK UPI</a></p>
+                          <p>Spotify: <a href="https://open.spotify.com/show/2nSqC89TMjZqbJcOi3j7gV">HIMA BK UPI</a></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-lg-12">
+                    <p>&copy; 2024 GuidanceConnect. All rights reserved.</p>
                 </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="contact-info">
-                  <h3>Hubungi Kami</h3>
-                  <p>anisa.n2202 (Anisa Nurwulan)</p>
-                  <p>Mail : himabk@upi.edu</p>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="social-media">
-                  <p>Instagram: <a href="https://www.instagram.com/himabkupi/">@himabkupi</a></p>
-                  <p>Facebook: <a href="https://www.facebook.com/himabk.dppb.upi/?locale=id_ID">HIMA BK UPI</a></p>
-                  <p>TikTok: <a href="https://www.tiktok.com/@prodibk.upi">HIMA BK UPI</a></p>
-                  <p>Spotify: <a href="https://open.spotify.com/show/2nSqC89TMjZqbJcOi3j7gV">HIMA BK UPI</a></p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-12">
-                <p>
-                <p>&copy; 2024 GuidanceConnect. All rights reserved.</p>
-                </p>
-              </div>
             </div>
           </div>
-        </footer>  
+      </footer>
 </body>
 </html>
