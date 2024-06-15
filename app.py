@@ -186,7 +186,7 @@ def edit_info(id):
 
         if gambarbeasiswa:
             filename = (gambarbeasiswa.filename)
-            file_path = os.path.join('GuidanceConnect/static/img/beasiswa', filename)
+            file_path = os.path.join('GuidanceConnect/static/img', filename)
             gambarbeasiswa.save(file_path)
             doc['gambarbeasiswa'] = filename
 
@@ -194,7 +194,7 @@ def edit_info(id):
         return redirect(url_for("admin_infobeasiswa"))
     
     info = db.infos.find_one({'_id': ObjectId(id)})
-    return render_template('edit_blog.html', info=info)
+    return render_template('edit_info.html', info=info)
 
 @app.route('/delete_info/<id>', methods=['POST'])
 def delete_info(id):
