@@ -199,8 +199,8 @@ def edit_info(id):
         gambarbeasiswa = request.files.get('gambarbeasiswa')
         
         doc = {
-            'nama':namabeasiswa,
-            'deskripsi':deskripsidanpersyaratan
+            'namabeasiswa':namabeasiswa,
+            'deskripsidanpersyaratan':deskripsidanpersyaratan
         }
 
         if gambarbeasiswa:
