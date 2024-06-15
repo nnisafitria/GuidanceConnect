@@ -169,9 +169,9 @@ def admin_infobeasiswa():
 @app.route('/tambah_beasiswa', methods=['GET', 'POST'])
 def tambah_beasiswa():
     if request.method == 'POST':
-        namabeasiswa= request.form.get('nama beasiswa')
-        deskripsidanpersyaratan = request.form.get('deskripsi dan persyaratan')
-        gambarbeasiswa = request.files.get('gambar beasiswa')
+        namabeasiswa= request.form.get('namabeasiswa')
+        deskripsidanpersyaratan = request.form.get('deskripsidanpersyaratan')
+        gambarbeasiswa = request.files.get('gambarbeasiswa')
 
         if gambarbeasiswa:
             filename = secure_filename(gambarbeasiswa.filename)
