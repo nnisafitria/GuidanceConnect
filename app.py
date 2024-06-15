@@ -1,11 +1,13 @@
-from flask import Flask, redirect, url_for, jsonify, render_template, request
+from flask import Flask, redirect, url_for, jsonify, render_template, request, session
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from datetime import datetime
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
 MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGODB_CONNECTION_STRING)
@@ -53,8 +55,25 @@ def blog(id):
 def alumni_mahasiswa():
     return render_template('mahasiswa_alumni.html')
 
-@app.route('/admin')
+@app.route('/admin', methods=['GET', 'POST'])
 def admin():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        # Cari pengguna berdasarkan username
+        user = db.users.find_one({'username': username})
+
+        if user and check_password_hash(user['password'], password):
+            # Jika username dan password cocok, set session
+            session['logged_in'] = True
+            session['username'] = username
+            return redirect(url_for('dashboard'))  # Ganti 'dashboard' dengan halaman setelah login
+        else:
+            # Jika tidak cocok, tampilkan pesan error
+            error_msg = 'Invalid username or password. Please try again.'
+            return render_template('login.html', error_msg=error_msg)
+
     return render_template('login.html')
 
 @app.route('/dashboard')
