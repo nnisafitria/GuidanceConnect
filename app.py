@@ -1,10 +1,13 @@
-from flask import Flask, redirect, url_for, jsonify, render_template, request
+from flask import Flask, redirect, url_for, jsonify, render_template, request, session
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from datetime import datetime
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
 MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGODB_CONNECTION_STRING)
@@ -43,16 +46,34 @@ def advokasi():
 def beasiswa():
     return render_template('informasiBeasiswa.html')
 
-@app.route('/blog')
-def blog():
-    return render_template('blog.html')
+@app.route('/blog/<id>', methods=['GET'])
+def blog(id):
+    blog = db.blogs.find_one({'_id': ObjectId(id)})
+    return render_template('blog.html', blog=blog)
 
 @app.route('/alumni_mahasiswa')
 def alumni_mahasiswa():
     return render_template('mahasiswa_alumni.html')
 
-@app.route('/admin')
+@app.route('/admin', methods=['GET', 'POST'])
 def admin():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        # Cari pengguna berdasarkan username
+        user = db.users.find_one({'username': username})
+
+        if user and check_password_hash(user['password'], password):
+            # Jika username dan password cocok, set session
+            session['logged_in'] = True
+            session['username'] = username
+            return redirect(url_for('dashboard'))  # Ganti 'dashboard' dengan halaman setelah login
+        else:
+            # Jika tidak cocok, tampilkan pesan error
+            error_msg = 'Invalid username or password. Please try again.'
+            return render_template('login.html', error_msg=error_msg)
+
     return render_template('login.html')
 
 @app.route('/dashboard')
@@ -121,15 +142,19 @@ def tambah_blog():
 
         if gambar:
             filename = secure_filename(gambar.filename)
-            file_path = os.path.join('static/img/blog', filename)
+            file_path = os.path.join('GuidanceConnect/static/img/blog', filename)
             gambar.save(file_path)
         else:
             filename = None
 
+        waktu_sekarang = datetime.now()
+        waktu_format = waktu_sekarang.strftime('%Y-%m-%d')
+
         doc = {
             'nama':judul,
             'gambar':filename,
-            'deskripsi':deskripsi
+            'deskripsi':deskripsi,
+            'time': waktu_format
         }
         db.blogs.insert_one(doc)
 
@@ -150,7 +175,7 @@ def edit_blog(id):
 
         if gambar:
             filename = (gambar.filename)
-            file_path = os.path.join('static/img/blog', filename)
+            file_path = os.path.join('GuidanceConnect/static/img/blog', filename)
             gambar.save(file_path)
             doc['gambar'] = filename
 
@@ -173,16 +198,13 @@ def admin_infobeasiswa():
 @app.route('/tambah_beasiswa')
 def tambah_beasiswa():
     if request.method == 'POST':
-        namabeasiswa= request.form.get('nama beasiswa')
-        deskripsidanpersyaratan = request.form.get('deskripsi dan persyaratan')
-        gambarbeasiswa = request.files.get('gambar beasiswa')
-
-        if not namabeasiswa or not gambarbeasiswa or not deskripsidanpersyaratan:
-            return jsonify({"msg": 'Semua field harus diisi'})
+        namabeasiswa= request.form.get('namabeasiswa')
+        deskripsidanpersyaratan = request.form.get('deskripsidanpersyaratan')
+        gambarbeasiswa = request.files.get('gambarbeasiswa')
 
         if gambarbeasiswa:
             filename = secure_filename(gambarbeasiswa.filename)
-            file_path = os.path.join('static/img/info beasiswa', filename)
+            file_path = os.path.join('GuidanceConnect/static/img/beasiswa', filename)
             gambarbeasiswa.save(file_path)
         else:
             filename = None
@@ -207,13 +229,13 @@ def edit_info(id):
         gambarbeasiswa = request.files.get('gambarbeasiswa')
         
         doc = {
-            'nama':namabeasiswa,
-            'deskripsi':deskripsidanpersyaratan
+            'namabeasiswa':namabeasiswa,
+            'deskripsidanpersyaratan':deskripsidanpersyaratan
         }
 
         if gambarbeasiswa:
             filename = (gambarbeasiswa.filename)
-            file_path = os.path.join('static/img/info beasiswa', filename)
+            file_path = os.path.join('GuidanceConnect/static/img/beasiswa', filename)
             gambarbeasiswa.save(file_path)
             doc['gambarbeasiswa'] = filename
 
@@ -221,9 +243,9 @@ def edit_info(id):
         return redirect(url_for("admin_infobeasiswa"))
     
     info = db.infos.find_one({'_id': ObjectId(id)})
-    return render_template('edit_blog.html', info=info)
+    return render_template('edit_info.html', info=info)
 
-@app.route('/delete/<id>', methods=['POST'])
+@app.route('/delete_info/<id>', methods=['POST'])
 def delete_info(id):
     db.infos.delete_one({'_id': ObjectId(id)})
     return redirect(url_for('admin_infobeasiswa'))

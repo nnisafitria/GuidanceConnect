@@ -164,7 +164,7 @@
                 <img src="../static/img/blog/{{ blog.gambar }}" alt="Slide {{ loop.index }}">
               </div>
               <div class="card-body">
-                <h5 class="card-title"><a href="{{ url_for('blog') }}">{{ blog.nama }}</a></h5>
+                <h5 class="card-title"><a href="/blog/{{blog._id}}">{{ blog.nama }}</a></h5>
               </div>
             </div>
           </div>
