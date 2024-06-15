@@ -53,8 +53,25 @@ def blog(id):
 def alumni_mahasiswa():
     return render_template('mahasiswa_alumni.html')
 
-@app.route('/admin')
+@app.route('/admin', methods=['GET', 'POST'])
 def admin():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        # Cari pengguna berdasarkan username
+        user = db.users.find_one({'username': username})
+
+        if user and check_password_hash(user['password'], password):
+            # Jika username dan password cocok, set session
+            session['logged_in'] = True
+            session['username'] = username
+            return redirect(url_for('dashboard'))  # Ganti 'dashboard' dengan halaman setelah login
+        else:
+            # Jika tidak cocok, tampilkan pesan error
+            error_msg = 'Invalid username or password. Please try again.'
+            return render_template('login.html', error_msg=error_msg)
+
     return render_template('login.html')
 
 @app.route('/dashboard')
