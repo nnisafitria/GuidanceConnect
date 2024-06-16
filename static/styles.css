@@ -108,6 +108,7 @@ a.border-lightblue:hover {
 #hero-section h2 {
     margin-top: 100px;
     font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
 }
 
 #hero-section p {
@@ -226,6 +227,7 @@ img {
     margin-top: 50px;
     margin-bottom: 30px;
     font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
 }
 
 #blog-section {
@@ -260,6 +262,7 @@ img {
 
 #section-profil h2 {
     font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
 }
 
 #section-profil p {
@@ -311,8 +314,14 @@ img {
 #divisi h2 {
     margin-bottom: 30px;
     font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
 }
 
+#divisi .section-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dua kolom */
+    gap: 30px; /* Jarak antar kotak */
+}
 
 #divisi .section-body-item {
     display: flex;
@@ -322,6 +331,7 @@ img {
     color: white;
     height: 200px;
     align-items: center;
+    box-sizing: border-box;
 }
 
 #divisi .section-body-item h5 {
@@ -337,6 +347,9 @@ img {
     margin-top: 25px;
 }
 
+.icon-custom {
+    font-size: 100px; /* Sesuaikan ukuran sesuai kebutuhan */
+}
 /* #divisi .section-body .row:first-of-type {
     margin-bottom: 30px;
 } */
