@@ -119,11 +119,69 @@ def delete_mahasiswa(student_id):
 
 @app.route('/admin_alumni')
 def admin_alumni():
-    return render_template('admin_alumni.html')
+    alumnis = list(db.alumnis.find({}))
+    return render_template('admin_alumni.html', alumnis=alumnis)
 
-@app.route('/tambah_alumni')
+@app.route('/tambah_alumni', methods=['GET', 'POST'])
 def tambah_alumni():
+    if request.method == 'POST':
+        namaalumni = request.form.get('namaalumni')
+        gambaralumni = request.files.get('gambaralumni')
+        angkatan = request.form.get('angkatan')
+        testimoni = request.form.get('testimoni')
+        pekerjaan = request.form.get('pekerjaan')
+
+        if gambaralumni:
+            filename = secure_filename(gambaralumni.filename)
+            file_path = os.path.join('GuidanceConnect/static/img/alumni', filename)
+            gambaralumni.save(file_path)
+        else:
+            filename = None
+
+        doc = {
+            'namaalumni':namaalumni,
+            'gambaralumni':gambaralumni,
+            'angkatan':angkatan,
+            'testimoni':testimoni,
+            'pekerjaan':pekerjaan
+        }
+        db.alumnis.insert_one(doc)
+
+        return redirect(url_for("admin_alumni"))
     return render_template('tambah_alumni.html')
+
+@app.route('/edit_alumni/<id>', methods=['GET', 'POST'])
+def edit_alumni(id):
+    if request.method == 'POST':
+        namaalumni = request.form.get('namaalumni')
+        gambaralumni = request.files.get('gambaralumni')
+        angkatan = request.form.get('angkatan')
+        testimoni = request.form.get('testimoni')
+        pekerjaan = request.form.get('pekerjaan')
+
+        doc = {
+            'namaalumni':namaalumni,
+            'gambaralumni':gambaralumni,
+            'angkatan':angkatan,
+            'testimoni':testimoni,
+            'pekerjaan':pekerjaan
+            }
+        if gambaralumni:
+            filename = (gambaralumni.filename)
+            file_path =os.path.join('GuidanceConnect/static/img/alumni', filename)
+            gambaralumni.save(file_path)
+            doc['gambaralumni'] = filename
+
+        db.alumnis.update_one({'_id': ObjectId(id)}, {"$set": doc})
+        return redirect(url_for("admin_alumni"))
+    
+    alumni = db.alumnis.find_one({'_id': ObjectId(id)})
+    return render_template('edit_alumni.html', alumni=alumni)
+
+@app.route('/delete_alumni/<id>', methods=['POST'])
+def delete_alumni(id):
+    db.alumnis.delete_one({'_id': ObjectId(id)})
+    return redirect(url_for('admin_alumni'))
 
 @app.route('/admin_blog')
 def admin_blog():
