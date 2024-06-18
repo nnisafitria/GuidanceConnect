@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, jsonify, render_template, request, session
 from pymongo import MongoClient
-from bson.objectid import ObjectId
+from bson import ObjectId
 from datetime import datetime
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash

@@ -77,9 +77,10 @@
             <h3>ALUMNI</h3>
             <hr>
 
+            <form action="{{ url_for('tambah_alumni') }}" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Nama Alumni</label>
-                <input type="number" class="form-control" id="nim" placeholder="Nama Alumni">
+                <label for="nama alumni" class="form-label">Nama Alumni</label>
+                <input type="text" class="form-control" id="nama alumni" placeholder="Nama Alumni">
             </div>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Gambar</label>
@@ -100,6 +101,10 @@
             <div class="d-flex justify-content-end">
                 <a href="" class="btn btn-primary"><i class="fa-solid fa-plus"></i> SAVE</a>
             </div>
+        </form>
         </div>
     </div>
+    {% if msg %}
+    alert("{{ msg }}")
+{% endif %}
 </body>
