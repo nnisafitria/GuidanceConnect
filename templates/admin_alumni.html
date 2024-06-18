@@ -96,7 +96,7 @@
                     {% for alumni in alumnis %}
                     <tr>
                         <th scope="row">{{ loop.index }}</th>
-                        <td>{{ alumni.nama }}</td>
+                        <td>{{ alumni.namaalumni }}</td>
                         <td><img src="../static/img/alumni/{{ alumni.gambaralumni }}" alt="" width="100" /></td>
                         <td>{{ alumni.angkatan }}</td>
                         <td>{{ alumni.testimoni }}</td>
@@ -109,7 +109,7 @@
                         </form>
                     </td>
                         <td>
-                            <form action="/delete_alumni/{{alumni.id}}" method="post" onsubmit="return confirm('Apakah anda yakin ingin menghapus alumni ini?')">
+                            <form action="/delete/{{ alumni.id }}" method="post" onsubmit="return confirm('Apakah anda yakin ingin menghapus alumni ini?')">
                                 <button type="submit" class="btn btn-danger">
                             <i class="fa-solid fa-trash bg-danger p-2 text-white rounded" data-bs-toggle="tooltip"
                                 title="Delete"></i>

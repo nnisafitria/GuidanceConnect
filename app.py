@@ -137,10 +137,10 @@ def admin_alumni():
 def tambah_alumni():
     if request.method == 'POST':
         namaalumni = request.form.get('namaalumni')
-        gambaralumni = request.files.get('gambaralumni')
         angkatan = request.form.get('angkatan')
         testimoni = request.form.get('testimoni')
         pekerjaan = request.form.get('pekerjaan')
+        gambaralumni = request.files.get('gambaralumni')
 
         if gambaralumni:
             filename = secure_filename(gambaralumni.filename)
@@ -151,7 +151,7 @@ def tambah_alumni():
 
         doc = {
             'namaalumni':namaalumni,
-            'gambaralumni':gambaralumni,
+            'gambaralumni':filename,
             'angkatan':angkatan,
             'testimoni':testimoni,
             'pekerjaan':pekerjaan
@@ -189,7 +189,7 @@ def edit_alumni(id):
     alumni = db.alumnis.find_one({'_id': ObjectId(id)})
     return render_template('edit_alumni.html', alumni=alumni)
 
-@app.route('/delete_alumni/<id>', methods=['POST'])
+@app.route('/delete/<id>', methods=['POST'])
 def delete_alumni(id):
     db.alumnis.delete_one({'_id': ObjectId(id)})
     return redirect(url_for('admin_alumni'))
