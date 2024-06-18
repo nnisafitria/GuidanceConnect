@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for, jsonify, render_template, request, session
 from pymongo import MongoClient
-from bson.objectid import ObjectId
+from bson import ObjectId
 from datetime import datetime
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -78,7 +78,18 @@ def admin():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    jumlah_blog = db.blogs.count_documents({})
+    jumlah_mahasiswa = db.students.count_documents({})
+    jumlah_beasiswa = db.infos.count_documents({})
+
+    return render_template(
+        'dashboard.html',
+        jumlah_blog=jumlah_blog,
+        jumlah_mahasiswa=jumlah_mahasiswa,
+        jumlah_beasiswa=jumlah_beasiswa,
+        
+
+        )
 
 @app.route('/admin_mahasiswa', methods=['GET'])
 def admin_mahasiswa():
