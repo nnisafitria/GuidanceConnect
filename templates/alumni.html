@@ -174,43 +174,13 @@ h1, h2 {
         </div>
 
         <main>
-        <div class="testimonial">
-            <img src='../static/img/avatar1.jpg' alt="Avatar 1">
+        <div class="testimonial" data-url="{{ url_for('alumni', id=alumni._id) }}">
+            <img class="alumnis" src='../static/img/alumni/{{ alumni.gambaralumni }}'>
             <div class="content">
-                <h3>Jiya Agustina</h3>
-                <p class="batch">Angkatan 2017</p>
-                <p>Setelah lulus S1 dari Program Studi KMBK di Prodi Ilmu Komputer, saya bekerja sebagai Instruktur di sebuah lembaga kursus programming. Kemudian saya melanjutkan studi S2 di Prodi Ilmu Komputer UPI dengan konsentrasi Rekayasa Perangkat Lunak. Saat ini saya bekerja sebagai Software Engineer di sebuah perusahaan startup teknologi di Jakarta. Terima kasih KMBK, telah memberi saya bekal ilmu yang sangat bermanfaat untuk karir saya.</p>
-                <p class="job">Konselor Karir</p>
-            </div>
-        </div>
-
-        <div class="testimonial">
-            <img src="../static/img/avatar2.jpg" alt="Avatar 2">
-            <div class="content">
-                <h3>Asep Saepul</h3>
-                <p class="batch">Angkatan 2019</p>
-                <p>Setelah lulus S1 dari Program Studi KMBK di Prodi Ilmu Komputer, saya bekerja sebagai Instruktur di sebuah lembaga kursus programming. Kemudian saya melanjutkan studi S2 di Prodi Ilmu Komputer UPI dengan konsentrasi Rekayasa Perangkat Lunak. Saat ini saya bekerja sebagai Software Engineer di sebuah perusahaan startup teknologi di Jakarta. Terima kasih KMBK, telah memberi saya bekal ilmu yang sangat bermanfaat untuk karir saya.</p>
-                <p class="job">HRD</p>
-            </div>
-        </div>
-
-        <div class="testimonial">
-            <img src="../static/img/avatar3.jpg" alt="Avatar 3">
-            <div class="content">
-                <h3>Lulu Maspuritah</h3>
-                <p class="batch">Angkatan 2018</p>
-                <p>Setelah lulus S1 dari Program Studi KMBK di Prodi Ilmu Komputer, saya bekerja sebagai Instruktur di sebuah lembaga kursus programming. Kemudian saya melanjutkan studi S2 di Prodi Ilmu Komputer UPI dengan konsentrasi Rekayasa Perangkat Lunak. Saat ini saya bekerja sebagai Software Engineer di sebuah perusahaan startup teknologi di Jakarta. Terima kasih KMBK, telah memberi saya bekal ilmu yang sangat bermanfaat untuk karir saya.</p>
-                <p class="job">Konselor</p>
-            </div>
-        </div>
-
-        <div class="testimonial">
-            <img src="../static/img/avatar4.jpg" alt="Avatar 4">
-            <div class="content">
-                <h3>Rina Sitompul</h3>
-                <p class="batch">Angkatan 2019</p>
-                <p>Setelah lulus S1 dari Program Studi KMBK di Prodi Ilmu Komputer, saya bekerja sebagai Instruktur di sebuah lembaga kursus programming. Kemudian saya melanjutkan studi S2 di Prodi Ilmu Komputer UPI dengan konsentrasi Rekayasa Perangkat Lunak. Saat ini saya bekerja sebagai Software Engineer di sebuah perusahaan startup teknologi di Jakarta. Terima kasih KMBK, telah memberi saya bekal ilmu yang sangat bermanfaat untuk karir saya.</p>
-                <p class="job">Enterprener</p>
+                <h3>{{ alumni.namaalumni }}</h3>
+                <p class="batch">{{ alumni.angkatan }}</p>
+                <p>{{ alumni.testimoni }}</p>
+                <p class="job">{{ alumni.pekerjaan }}</p>
             </div>
         </div>
     </main>
