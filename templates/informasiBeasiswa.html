@@ -171,14 +171,15 @@
     
       
         <div class="container-fluid">
+          {% for infos in infos %}
             <div class="card full-width-card mb-3" style="max-width: 90%;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="../static/img/beasiswa.png" class="img-fluid rounded-start" alt="...">
+                        <img src="../static/img/beasiswa/{{beasiswa.gambarbeasiswa}}" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Beasiswa DataPrint</h5>
+                            <h5 class="card-title"><a href= "/beasiswa/{{beasiswa._id}}">{{beasiswa.namabeasiswa}}</a></h5>
                             <p class="card-text">
                                 Beasiswa DataPrint kembali memberikan bantuan dana bagi seluruh pelajar Indonesia. Kamu harus membuat esai yang baik sesuai dengan tema dan mengisi formulir dengan data yang tepat dan sebenar-benarnya. Tidak ada sistem kuota berdasarkan daerah dan atau sekolah/perguruan tinggi. Hal ini bertujuan agar beasiswa dapat diterima secara merata bagi seluruh pengguna DataPrint di Indonesia.  Beasiswa terbagi dalam tiga nominal yaitu Rp400 ribu, Rp700 ribu dan Rp1 juta. Aspek penilaian berdasarkan dari esai, link info, prestasi, dan keaktifan peserta.
                             </p>
@@ -196,6 +197,7 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
 
             <div class="card full-width-card mb-3" style="max-width: 90%;">

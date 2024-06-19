@@ -18,6 +18,11 @@ def index():
     blogs = list(db.blogs.find({}))
     return render_template('index.html',blogs=blogs)
 
+@app.route('/informasiBeasiswa')
+def informasiBeasiswa():
+    infos = list(db.infos.find({}))
+    return render_template('informasiBeasiswa.html',infos=infos)
+
 @app.route('/profil')
 def profil():
     return render_template('profil.html')
