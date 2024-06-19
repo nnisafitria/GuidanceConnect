@@ -13,6 +13,7 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <title>Admin Blog</title>
+    <link rel="icon" href="../static/logo/Logo_Mypbb.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../static/styles.css">
     <script>
@@ -34,9 +35,9 @@
         </div>
         <div class="icon ml-4">
             <h5>
-                <i class="fa-solid fa-envelope mr-3" data-bs-toggle="tooltip" title="Pesan"></i>
-                <i class="fa-solid fa-bell mr-3" data-bs-toggle="tooltip" title="Notifikasi"></i>
-                
+                <a href="{{ url_for('index') }}">
+                    <i class="fa-solid fa-globe mr-3" data-bs-toggle="tooltip" title="Lihat Situs"></i>
+                </a>
             </h5>
         </div>
     </nav>

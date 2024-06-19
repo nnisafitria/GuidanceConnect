@@ -81,14 +81,14 @@ def dashboard():
     jumlah_blog = db.blogs.count_documents({})
     jumlah_mahasiswa = db.students.count_documents({})
     jumlah_beasiswa = db.infos.count_documents({})
+    jumlah_alumni = db.alumnis.count_documents({})
 
     return render_template(
         'dashboard.html',
         jumlah_blog=jumlah_blog,
         jumlah_mahasiswa=jumlah_mahasiswa,
         jumlah_beasiswa=jumlah_beasiswa,
-        
-
+        jumlah_alumni=jumlah_alumni
         )
 
 @app.route('/admin_mahasiswa', methods=['GET'])
