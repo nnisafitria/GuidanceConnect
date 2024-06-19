@@ -504,6 +504,17 @@ img {
 }
 
 /* icon navbar admin */
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Z-index untuk memastikan navbar tetap di atas elemen lainnya */
+}
+
+.navbar-spacing {
+    margin-top: 56px; /* Sesuaikan dengan tinggi navbar agar konten tidak tersembunyi di balik navbar */
+}
+
 .icon {
     display: flex;
     align-items: center;
