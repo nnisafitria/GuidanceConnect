@@ -102,7 +102,7 @@
                         <td>{{ alumni.angkatan }}</td>
                         <td>{{ alumni.testimoni }}</td>
                         <td>{{ alumni.pekerjaan }}</td>
-                        <td><form action="/edit_alumni/{{alumni.id}}">
+                        <td><form action="/edit_alumni/{{alumni._id}}">
                             <button type="submit" class="btn btn-warning">
                             <i class="fa-solid fa-pen-to-square bg-warning p-2 text-white rounded"
                                 data-bs-toggle="tooltip" title="Edit"></i>
@@ -110,7 +110,7 @@
                         </form>
                     </td>
                         <td>
-                            <form action="/delete/{{ alumni.id }}" method="post" onsubmit="return confirm('Apakah anda yakin ingin menghapus alumni ini?')">
+                            <form action="/delete/{{ alumni._id }}" method="post" onsubmit="return confirm('Apakah anda yakin ingin menghapus alumni ini?')">
                                 <button type="submit" class="btn btn-danger">
                             <i class="fa-solid fa-trash bg-danger p-2 text-white rounded" data-bs-toggle="tooltip"
                                 title="Delete"></i>
