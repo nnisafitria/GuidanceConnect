@@ -12,6 +12,28 @@ app.secret_key = 'your_secret_key'
 MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGODB_CONNECTION_STRING)
 db = client.dbmypbb
+students_collection = db.students
+
+@app.route('/api/student_data')
+def student_data():
+    # Ambil data dari MongoDB
+    pipeline = [
+        {"$group": {"_id": "$tahun", "count": {"$sum": 1}}},
+        {"$sort": {"_id": 1}}
+    ]
+    results = list(students_collection.aggregate(pipeline))
+
+    labels = [str(result['_id']) for result in results]
+    data = [result['count'] for result in results]
+
+    return jsonify({"labels": labels, "data": data})
+
+@app.route('/profil/<tahun>')
+def profil_mahasiswa(tahun):
+    mahasiswa = list(students_collection.find({"tahun": int(tahun)}))
+    print(mahasiswa)  # Tambahkan ini untuk debug, pastikan data tersedia di sini
+    return render_template('profil.html', tahun=tahun, mahasiswa=mahasiswa)
+
 
 @app.route('/')
 def index():
@@ -101,9 +123,10 @@ def tambah_mahasiswa():
     if request.method == 'POST':
         nim = request.form.get('nim')
         nama = request.form.get('nama')
+        tahun = request.form.get('tahun')
         
-        if nim and nama:
-            db.students.insert_one({'nim': nim, 'nama': nama})
+        if nim and nama and tahun:
+            db.students.insert_one({'nim': nim, 'nama': nama, 'tahun':tahun})
         
         return redirect(url_for('admin_mahasiswa'))
     
@@ -116,9 +139,10 @@ def edit_mahasiswa(student_id):
     if request.method == 'POST':
         nim = request.form.get('nim')
         nama = request.form.get('nama')
+        tahun = request.form.get('tahun')
         
         if nim and nama:
-            db.students.update_one({'_id': ObjectId(student_id)}, {'$set': {'nim': nim, 'nama': nama}})
+            db.students.update_one({'_id': ObjectId(student_id)}, {'$set': {'nim': nim, 'nama': nama, 'tahun':tahun}})
             return redirect(url_for('admin_mahasiswa'))
     
     return render_template('edit_mahasiswa.html', student=student)
