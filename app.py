@@ -18,11 +18,6 @@ def index():
     blogs = list(db.blogs.find({}))
     return render_template('index.html',blogs=blogs)
 
-@app.route('/informasiBeasiswa')
-def informasiBeasiswa():
-    infos = list(db.infos.find({}))
-    return render_template('informasiBeasiswa.html',infos=infos)
-
 @app.route('/profil')
 def profil():
     return render_template('profil.html')
@@ -293,6 +288,11 @@ def tambah_beasiswa():
 
         return redirect(url_for("admin_infobeasiswa"))
     return render_template('tambah_beasiswa.html')
+
+@app.route('/informasiBeasiswa')
+def show_informasiBeasiswa():
+    infos = list(db.infos.find({}))
+    return render_template('informasiBeasiswa.html',infos=infos)
 
 @app.route('/edit_info/<id>', methods=['GET', 'POST'])
 def edit_info(id):
