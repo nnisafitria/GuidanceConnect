@@ -193,9 +193,8 @@ body .student{
                 <div class="student-list">
                     {% for mhs in mahasiswa %}
                     <div class="student">
-                        <p><strong>NIM:</strong> {{ mhs['nim'] }}</p>
-                        <p>Nama: {{ mhs['nama'] }}</p>
-                        <p>Tahun: {{ mhs['tahun'] }}</p>
+                        <p><strong>NIM:</strong> {{ mhs.nim }}</p>
+                        <p>Nama: {{ mhs.nama }}</p>
                     </div>
                     {% endfor %}
                 </div>

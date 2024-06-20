@@ -12,7 +12,7 @@ app.secret_key = 'your_secret_key'
 MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGODB_CONNECTION_STRING)
 db = client.dbmypbb
-students_collection = db.students
+students_collection = db['students'] 
 
 @app.route('/api/student_data')
 def student_data():
@@ -29,20 +29,18 @@ def student_data():
     return jsonify({"labels": labels, "data": data})
 
 @app.route('/profil/<tahun>')
-def profil_mahasiswa(tahun):
-    mahasiswa = list(students_collection.find({"tahun": int(tahun)}))
-    print(mahasiswa)  # Tambahkan ini untuk debug, pastikan data tersedia di sini
+def profil(tahun):
+    # Mengambil data mahasiswa berdasarkan tahun
+    mahasiswa = list(students_collection.find({"tahun": tahun}))  # Menggunakan tahun sebagai string
+    print(mahasiswa)  # Cek apakah data mahasiswa terambil dengan benar
     return render_template('profil.html', tahun=tahun, mahasiswa=mahasiswa)
-
 
 @app.route('/')
 def index():
     blogs = list(db.blogs.find({}))
     return render_template('index.html',blogs=blogs)
 
-@app.route('/profil')
-def profil():
-    return render_template('profil.html')
+
 
 @app.route('/alumni')
 def alumni():
@@ -75,7 +73,8 @@ def blog(id):
 
 @app.route('/alumni_mahasiswa')
 def alumni_mahasiswa():
-    return render_template('mahasiswa_alumni.html')
+    # Logic to fetch data and render the template
+    return render_template('mahasiswa_alumni.html', active_page='alumni_mahasiswa')
 
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
