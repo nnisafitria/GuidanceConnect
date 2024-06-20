@@ -170,35 +170,28 @@
        </nav>
     
       
-        <div class="container-fluid">
-          {% for info in infos %}
-            <div class="card full-width-card mb-3" style="max-width: 90%;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="../static/img/beasiswa/{{info.gambarbeasiswa}}" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><"/beasiswa/{{info._id}}">{{beasiswa.namabeasiswa}}</h5>
-                            <p class="card-text">
-                                Beasiswa DataPrint kembali memberikan bantuan dana bagi seluruh pelajar Indonesia. Kamu harus membuat esai yang baik sesuai dengan tema dan mengisi formulir dengan data yang tepat dan sebenar-benarnya. Tidak ada sistem kuota berdasarkan daerah dan atau sekolah/perguruan tinggi. Hal ini bertujuan agar beasiswa dapat diterima secara merata bagi seluruh pengguna DataPrint di Indonesia.  Beasiswa terbagi dalam tiga nominal yaitu Rp400 ribu, Rp700 ribu dan Rp1 juta. Aspek penilaian berdasarkan dari esai, link info, prestasi, dan keaktifan peserta.
-                            </p>
-                            <h6>Persyaratan</h6>
-                            <ol>
-                                <li>Mahasiswa aktif jenjang D3/D4/S1</li>
-                                <li>Terlibat aktif dalam suatu kegiatan atau organisasi</li>
-                                <li>Tidak terlibat narkoba atau pernah melakukan tindak kriminal</li>
-                                <li>Tidak sedang menerima beasiswa dari perusahaan swasta lain. Jika saat ini peserta masih menerima beasiswa dari sekolah/kampus & pemerintah, peserta berhak mengikuti pendaftaran beasiswa dari DataPrint.</li>
-                                <li>Penerima beasiswa di periode 1 tidak dapat menjadi penerima beasiswa di periode 2 tahun 2021.</li>
-                                <li>Mengisi formulir registrasi di kolom Pendaftaran</li>
-                                <li>Satu nomor kupon yang terdapat di dalam produk DataPrint, hanya berlaku untuk satu kali registrasi.</li>
-                                <li>Pendaftaran tidak dipungut biaya.</li>
-                            </ol>
-                        </div>
+       <div class="container-fluid">
+        {% for info in infos %}
+        <div class="card full-width-card mb-3" style="max-width: 90%;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../static/img/beasiswa/{{ info.gambarbeasiswa }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="/beasiswa/{{ info._id }}">{{ info.namabeasiswa }}</a>
+                        </h5>
+                        <p class="card-text">
+                            {{ info.deskripsidanpersyaratan }}
+                        </p>
                     </div>
                 </div>
-                {% endfor %}
             </div>
+        </div>
+        {% endfor %}
+    </div>
+    
 
 
       <footer class="footer py-5">
