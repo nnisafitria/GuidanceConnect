@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGODB_CONNECTION_STRING = "mongodb+srv://fabimanyu:Sukses123@atlascluster.pni4lxb.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster"
 client = MongoClient(MONGODB_CONNECTION_STRING)
 db = client.dbmypbb
 students_collection = db['students'] 
@@ -366,6 +366,19 @@ def semester5():
 @app.route('/semester6')
 def semester6():
     return render_template('semester6.html')
+
+@app.route('/submit_aspiration', methods=['POST'])
+def submit_aspiration():
+    aspiration_text = request.form.get('aspiration_text')
+    
+    if aspiration_text:
+        doc = {
+            'aspiration_text': aspiration_text,
+            'timestamp': datetime.utcnow()
+        }
+        db.aspirations.insert_one(doc)
+
+    return redirect(request.referrer)
 
 if __name__ == '__main__':
     app.run(port=5000,debug=True)
