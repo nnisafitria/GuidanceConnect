@@ -181,7 +181,7 @@ h1, h2 {
         <div class="testimonial" data-url="{{ url_for('alumni', id=alumni._id) }}">
             <img class="gambar" src='../static/img/alumni/{{ alumni.gambaralumni }}'>
             <div class="content">
-                <h3><a href="/alumni/{{alumni._id}}">{{ alumni.namaalumni }}</a></h3>
+                <h4>{{ alumni.namaalumni }}</a></h4>
                 <p class="batch">{{ alumni.angkatan }}</p>
                 <p>{{ alumni.testimoni }}</p>
                 <p class="job">{{ alumni.pekerjaan }}</p>

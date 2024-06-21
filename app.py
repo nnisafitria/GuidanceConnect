@@ -166,9 +166,10 @@ def tambah_alumni():
         pekerjaan = request.form.get('pekerjaan')
         gambaralumni = request.files.get('gambaralumni')
 
-        if gambaralumni:
+        filename = None
+        if gambaralumni and gambaralumni.filename:
             filename = secure_filename(gambaralumni.filename)
-            file_path = os.path.join('GuidanceConnect/static/img/alumni', filename)
+            file_path = 'static/img/alumni/' + filename
             gambaralumni.save(file_path)
         else:
             filename = None
@@ -196,14 +197,13 @@ def edit_alumni(id):
 
         doc = {
             'namaalumni':namaalumni,
-            'gambaralumni':gambaralumni,
             'angkatan':angkatan,
             'testimoni':testimoni,
             'pekerjaan':pekerjaan
             }
-        if gambaralumni:
-            filename = (gambaralumni.filename)
-            file_path =os.path.join('GuidanceConnect/static/img/alumni', filename)
+        if gambaralumni and gambaralumni.filename:
+            filename = secure_filename(gambaralumni.filename)
+            file_path ='static/img/alumni/' + filename
             gambaralumni.save(file_path)
             doc['gambaralumni'] = filename
 
