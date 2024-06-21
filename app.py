@@ -298,7 +298,7 @@ def tambah_beasiswa():
 
         if gambarbeasiswa:
             filename = secure_filename(gambarbeasiswa.filename)
-            file_path = os.path.join('GuidanceConnect/static/img/beasiswa', filename)
+            file_path = os.path.join('static/img/beasiswa', filename)
             gambarbeasiswa.save(file_path)
         else:
             filename = None
@@ -332,7 +332,7 @@ def edit_info(id):
 
         if gambarbeasiswa:
             filename = (gambarbeasiswa.filename)
-            file_path = os.path.join('GuidanceConnect/static/img/beasiswa', filename)
+            file_path = os.path.join('static/img/beasiswa', filename)
             gambarbeasiswa.save(file_path)
             doc['gambarbeasiswa'] = filename
 
