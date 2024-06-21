@@ -114,49 +114,51 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="#">Informasi Beasiswa</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ms-auto d-flex gap-3">
-            <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
-              <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
-            </li>
-            <li class="nav-item dropdown {% if active_page in ['alumni_mahasiswa', 'alumni'] %}active{% endif %}">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Mahasiswa & Alumni
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ url_for('alumni_mahasiswa') }}">Profil</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
-              </ul>
-            </li>
-            <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
-              <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
-            </li>
-            <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
-              <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
-            </li>
-            <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
-              <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
-            </li>
-            <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Advokasi
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
-                <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="../static/logo/Logo_Mypbb.png" alt="Logo"> Informasi Beasiswa
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto d-flex gap-3">
+          <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li class="nav-item dropdown {% if active_page in ['alumni_mahasiswa', 'alumni'] %}active{% endif %}">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mahasiswa & Alumni
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ url_for('alumni_mahasiswa') }}">Profil</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
+            </ul>
+          </li>
+          <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
+          </li>
+          <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
+          </li>
+          <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
+            <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
+          </li>
+          <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Advokasi
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
     
           <div class="new">
@@ -170,49 +172,29 @@
        </nav>
     
       
-        <div class="container-fluid">
-            <div class="card full-width-card mb-3" style="max-width: 90%;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="../static/img/beasiswa.png" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Beasiswa DataPrint</h5>
-                            <p class="card-text">
-                                Beasiswa DataPrint kembali memberikan bantuan dana bagi seluruh pelajar Indonesia. Kamu harus membuat esai yang baik sesuai dengan tema dan mengisi formulir dengan data yang tepat dan sebenar-benarnya. Tidak ada sistem kuota berdasarkan daerah dan atau sekolah/perguruan tinggi. Hal ini bertujuan agar beasiswa dapat diterima secara merata bagi seluruh pengguna DataPrint di Indonesia.  Beasiswa terbagi dalam tiga nominal yaitu Rp400 ribu, Rp700 ribu dan Rp1 juta. Aspek penilaian berdasarkan dari esai, link info, prestasi, dan keaktifan peserta.
-                            </p>
-                            <h6>Persyaratan</h6>
-                            <ol>
-                                <li>Mahasiswa aktif jenjang D3/D4/S1</li>
-                                <li>Terlibat aktif dalam suatu kegiatan atau organisasi</li>
-                                <li>Tidak terlibat narkoba atau pernah melakukan tindak kriminal</li>
-                                <li>Tidak sedang menerima beasiswa dari perusahaan swasta lain. Jika saat ini peserta masih menerima beasiswa dari sekolah/kampus & pemerintah, peserta berhak mengikuti pendaftaran beasiswa dari DataPrint.</li>
-                                <li>Penerima beasiswa di periode 1 tidak dapat menjadi penerima beasiswa di periode 2 tahun 2021.</li>
-                                <li>Mengisi formulir registrasi di kolom Pendaftaran</li>
-                                <li>Satu nomor kupon yang terdapat di dalam produk DataPrint, hanya berlaku untuk satu kali registrasi.</li>
-                                <li>Pendaftaran tidak dipungut biaya.</li>
-                            </ol>
-                        </div>
+       <div class="container-fluid">
+        {% for info in infos %}
+        <div class="card full-width-card mb-3" style="max-width: 90%;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="../static/img/beasiswa/{{ info.gambarbeasiswa }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <strong>{{ info.namabeasiswa }}</strong>
+                        </h5>
+                        <p class="card-text">
+                            {{ info.deskripsidanpersyaratan }}
+                        </p>
                     </div>
                 </div>
             </div>
-
-            <div class="card full-width-card mb-3" style="max-width: 90%;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="../static/img/beasiswa.png" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Beasiswa IKA UPI</h5>
-                      <p class="card-text">Ikatan Alumni UPI kembali membuka kesempatan kepada para mahasiswa untuk ikut serta dalam program Beasiswa IKA UPI Tahun 2022. Batas pendaftaran dibuka hingga tanggal 15 Juli 2022. So, what are you witing for?Segera persiapkan dirimu dan jangan sampai terlewat yaa!!
-                        Pendaftaran dan informasi selengkapnya dapat dilihat pada postingan di atas atau menghubungi pengelola Lembaga Beasiswa IKA UPI: 08197924000 (Najip/Wasekjen IKA UPI)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
         </div>
+        {% endfor %}
+    </div>
+    
+
 
       <footer class="footer py-5">
         <div class="container">
@@ -247,7 +229,7 @@
             </div>
             <div class="row mt-5">
               <div class="col-lg-12">
-                  <p>&copy; 2023 GuidanceConnect. All rights reserved.</p>
+                  <p>&copy; 2024 MyPbb. All rights reserved.</p>
               </div>
           </div>
         </div>

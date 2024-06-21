@@ -12,15 +12,35 @@ app.secret_key = 'your_secret_key'
 MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGODB_CONNECTION_STRING)
 db = client.dbmypbb
+students_collection = db['students'] 
+
+@app.route('/api/student_data')
+def student_data():
+    # Ambil data dari MongoDB
+    pipeline = [
+        {"$group": {"_id": "$tahun", "count": {"$sum": 1}}},
+        {"$sort": {"_id": 1}}
+    ]
+    results = list(students_collection.aggregate(pipeline))
+
+    labels = [str(result['_id']) for result in results]
+    data = [result['count'] for result in results]
+
+    return jsonify({"labels": labels, "data": data})
+
+@app.route('/profil/<tahun>')
+def profil(tahun):
+    # Mengambil data mahasiswa berdasarkan tahun
+    mahasiswa = list(students_collection.find({"tahun": tahun}))  # Menggunakan tahun sebagai string
+    print(mahasiswa)  # Cek apakah data mahasiswa terambil dengan benar
+    return render_template('profil.html', tahun=tahun, mahasiswa=mahasiswa)
 
 @app.route('/')
 def index():
     blogs = list(db.blogs.find({}))
     return render_template('index.html',blogs=blogs)
 
-@app.route('/profil')
-def profil():
-    return render_template('profil.html')
+
 
 @app.route('/alumni')
 def alumni():
@@ -53,7 +73,8 @@ def blog(id):
 
 @app.route('/alumni_mahasiswa')
 def alumni_mahasiswa():
-    return render_template('mahasiswa_alumni.html')
+    # Logic to fetch data and render the template
+    return render_template('mahasiswa_alumni.html', active_page='alumni_mahasiswa')
 
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
@@ -101,9 +122,10 @@ def tambah_mahasiswa():
     if request.method == 'POST':
         nim = request.form.get('nim')
         nama = request.form.get('nama')
+        tahun = request.form.get('tahun')
         
-        if nim and nama:
-            db.students.insert_one({'nim': nim, 'nama': nama})
+        if nim and nama and tahun:
+            db.students.insert_one({'nim': nim, 'nama': nama, 'tahun':tahun})
         
         return redirect(url_for('admin_mahasiswa'))
     
@@ -116,9 +138,10 @@ def edit_mahasiswa(student_id):
     if request.method == 'POST':
         nim = request.form.get('nim')
         nama = request.form.get('nama')
+        tahun = request.form.get('tahun')
         
         if nim and nama:
-            db.students.update_one({'_id': ObjectId(student_id)}, {'$set': {'nim': nim, 'nama': nama}})
+            db.students.update_one({'_id': ObjectId(student_id)}, {'$set': {'nim': nim, 'nama': nama, 'tahun':tahun}})
             return redirect(url_for('admin_mahasiswa'))
     
     return render_template('edit_mahasiswa.html', student=student)
@@ -288,6 +311,11 @@ def tambah_beasiswa():
 
         return redirect(url_for("admin_infobeasiswa"))
     return render_template('tambah_beasiswa.html')
+
+@app.route('/informasiBeasiswa')
+def show_informasiBeasiswa():
+    infos = list(db.infos.find({}))
+    return render_template('informasiBeasiswa.html',infos=infos)
 
 @app.route('/edit_info/<id>', methods=['GET', 'POST'])
 def edit_info(id):

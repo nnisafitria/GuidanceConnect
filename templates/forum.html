@@ -122,49 +122,51 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="container">
-            <a class="navbar-brand" href="#">Forum</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ms-auto d-flex gap-3">
-                <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
-                  <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
-                </li>
-                <li class="nav-item dropdown {% if active_page in ['alumni_mahasiswa', 'alumni'] %}active{% endif %}">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Mahasiswa & Alumni
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ url_for('alumni_mahasiswa') }}">Profil</a></li>
-                    <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
-                  <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
-                </li>
-                <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
-                  <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
-                </li>
-                <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
-                  <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
-                </li>
-                <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Advokasi
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
-                    <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="../static/logo/Logo_Mypbb.png" alt="Logo"> Forum
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto d-flex gap-3">
+              <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+              </li>
+              <li class="nav-item dropdown {% if active_page in ['alumni_mahasiswa', 'alumni'] %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Mahasiswa & Alumni
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ url_for('alumni_mahasiswa') }}">Profil</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
+                </ul>
+              </li>
+              <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
+                <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
+              </li>
+              <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
+                <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
+              </li>
+              <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
+                <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
+              </li>
+              <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Advokasi
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
+                </ul>
+              </li>
+            </ul>
           </div>
-        </nav>
+        </div>
+      </nav>
     </header>
     <div>
       <div class="mypic" style="text-align: center; ">
@@ -179,12 +181,12 @@
               <div class="card">
                   <div class="row g-0 d-flex">
                       <div class="col-3">
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRptjwulUHWYzg2ExyKNaO9_04SdoBBgkjfew&s" alt="..." class="img-fluid">
+                          <img src="https://cdn.idntimes.com/content-images/community/2020/10/jenis-perusahaan-yang-ada-di-indonesia-dan-penjelasan-lengkapnya-1273c223fd17d536347e606489f63c3d_600x400.jpg" alt="..." class="img-fluid">
                       </div>
                       <div class="col-9 px-2">
                           <div class="card-body">
                               <h4 class="card-title">Bekerja di Perusahaan</h4>
-                              <a class="custom-link" href="#">Link</a>
+                              <a class="custom-link" href="https://chat.whatsapp.com/JtFnDoMWzgZ6epZR3GpgFk">Link</a>
                           </div>
                       </div>
                   </div>
@@ -204,7 +206,7 @@
                   <div class="col-9 px-2">
                       <div class="card-body">
                           <h4 class="card-title">Bekerja di Sekolah</h4>
-                          <a class="custom-link" href="#">Link</a>
+                          <a class="custom-link" href="https://chat.whatsapp.com/JtFnDoMWzgZ6epZR3GpgFk">Link</a>
                       </div>
                   </div>
               </div>
@@ -223,7 +225,7 @@
                   <div class="col-9 px-2">
                       <div class="card-body">
                           <h4 class="card-title">Lomba-lomba</h4>
-                          <a class="custom-link" href="#">Link</a>
+                          <a class="custom-link" href="https://chat.whatsapp.com/JtFnDoMWzgZ6epZR3GpgFk">Link</a>
                       </div>
                   </div>
               </div>
@@ -266,7 +268,7 @@
               </div>
               <div class="row mt-5">
                 <div class="col-lg-12">
-                    <p>&copy; 2024 GuidanceConnect. All rights reserved.</p>
+                    <p>&copy; 2024 MyPbb. All rights reserved.</p>
                 </div>
             </div>
           </div>

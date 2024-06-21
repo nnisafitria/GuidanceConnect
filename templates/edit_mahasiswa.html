@@ -99,6 +99,10 @@
                     <label for="nama" class="form-label">Nama</label>
                     <input type="text" class="form-control" id="nama" name="nama" value="{{ student.nama }}" required>
                 </div>
+                <div class="mb-3">
+                    <label for="tahun" class="form-label">Tahun</label>
+                    <input type="text" class="form-control" id="tahun" name="tahun" placeholder="Tahun">
+                </div>
                 <button type="submit" class="btn btn-primary">Update</button>
                 <a href="{{ url_for('admin_mahasiswa') }}" class="btn btn-secondary">Cancel</a>
             </form>

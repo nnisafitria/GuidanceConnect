@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Mahasiswa 2023</title>
+    <title>Profil Mahasiswa {{ tahun }}</title>
     <link rel="icon" href="../static/logo/Logo_Mypbb.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -135,87 +135,73 @@ body .student{
 </head>
 <body> 
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-              <a class="navbar-brand" href="#">Profil Mahasiswa</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ms-auto d-flex gap-3">
-                  <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
-                  </li>
-                  <li class="nav-item dropdown {% if active_page in ['alumni_mahasiswa', 'alumni'] %}active{% endif %}">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Mahasiswa & Alumni
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ url_for('alumni_mahasiswa') }}">Profil</a></li>
-                      <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
-                    <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
-                  </li>
-                  <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
-                    <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
-                  </li>
-                  <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
-                    <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
-                  </li>
-                  <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Advokasi
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
-                      <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
-                    </ul>
-                  </li>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="../static/logo/Logo_Mypbb.png" alt="Logo"> Profil Mahasiswa
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto d-flex gap-3">
+              <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+              </li>
+              <li class="nav-item dropdown {% if active_page in ['alumni_mahasiswa', 'alumni'] %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Mahasiswa & Alumni
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ url_for('alumni_mahasiswa') }}">Profil</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('alumni') }}">Alumni</a></li>
                 </ul>
-              </div>
-            </div>
-          </nav>
+              </li>
+              <li class="nav-item {% if active_page == 'forum' %}active{% endif %}">
+                <a class="nav-link" href="{{ url_for('forum') }}">Forum</a>
+              </li>
+              <li class="nav-item {% if active_page == 'konseling' %}active{% endif %}">
+                <a class="nav-link" href="{{ url_for('konseling') }}">Konseling</a>
+              </li>
+              <li class="nav-item {% if active_page == 'elibrary' %}active{% endif %}">
+                <a class="nav-link" href="{{ url_for('elibrary') }}">E-Libary</a>
+              </li>
+              <li class="nav-item dropdown {% if active_page in ['advokasi', 'beasiswa'] %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Advokasi
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ url_for('advokasi') }}">Advokasi</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('beasiswa') }}">Informasi Beasiswa</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
-    <div>
-        <div class="mypic">
-            <h1>Profil Mahasiswa 2023</h1>
-            <p>Data mahasiswa 2023</p>
+    <div class="mypic">
+      <h1>Profil Mahasiswa {{ tahun }}</h1>
+      <p>Data mahasiswa tahun {{ tahun }}</p>
+  </div>
+  </div>
+  <div class="container my-5">
+    <div class="custom-row align-items-center">
+        <div class="col-lg-6">
+            <section class="profile-section">
+                <div class="student-list">
+                    {% for mhs in mahasiswa %}
+                    <div class="student">
+                        <p><strong>Nama:</strong> {{ mhs.nama }}</p>
+                        <p><strong>NIM:</strong> {{ mhs.nim }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
         </div>
     </div>
-    <div class="container my-5">
-      <div class="custom-row align-items-center">
-          <div class="col-lg-6">
-              <section class="profile-section">
-                  <div class="student-list">
-                      <div class="student">
-                          <p>Nama</p>
-                          <p>NIM</p>
-                      </div>
-                      <div class="student">
-                          <p>Nama</p>
-                          <p>NIM</p>
-                      </div>
-                      <div class="student">
-                          <p>Nama</p>
-                          <p>NIM</p>
-                      </div>
-                      <div class="student">
-                          <p>Nama</p>
-                          <p>NIM</p>
-                      </div>
-                      <div class="student">
-                          <p>Nama</p>
-                          <p>NIM</p>
-                      </div>
-                      <!-- Tambahkan entri mahasiswa di sini -->
-                  </div>
-              </section>
-          </div>
-      </div>
-  </div>
+</div>
   <footer class="footer py-5">
     <div class="container">
         <div class="row">
@@ -250,7 +236,7 @@ body .student{
         </div>
         <div class="row mt-5">
           <div class="col-lg-12">
-              <p>&copy; 2024 GuidanceConnect. All rights reserved.</p>
+              <p>&copy; 2024 MyPbb. All rights reserved.</p>
           </div>
       </div>
     </div>
