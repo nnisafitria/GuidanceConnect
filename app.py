@@ -169,7 +169,7 @@ def tambah_alumni():
         filename = None
         if gambaralumni and gambaralumni.filename:
             filename = secure_filename(gambaralumni.filename)
-            file_path = 'static/img/alumni/' + filename
+            file_path = 'GuidanceConnect/static/img/alumni/' + filename
             gambaralumni.save(file_path)
         else:
             filename = None
@@ -203,7 +203,7 @@ def edit_alumni(id):
             }
         if gambaralumni and gambaralumni.filename:
             filename = secure_filename(gambaralumni.filename)
-            file_path ='static/img/alumni/' + filename
+            file_path ='GuidanceConnect/static/img/alumni/' + filename
             gambaralumni.save(file_path)
             doc['gambaralumni'] = filename
 
