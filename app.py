@@ -237,7 +237,7 @@ def tambah_blog():
 
         if gambar:
             filename = secure_filename(gambar.filename)
-            file_path = os.path.join('GuidanceConnect/static/img/blog', filename)
+            file_path = os.path.join('static/img/blog', filename)
             gambar.save(file_path)
         else:
             filename = None
@@ -270,7 +270,7 @@ def edit_blog(id):
 
         if gambar:
             filename = (gambar.filename)
-            file_path = os.path.join('GuidanceConnect/static/img/blog', filename)
+            file_path = os.path.join('static/img/blog', filename)
             gambar.save(file_path)
             doc['gambar'] = filename
 
