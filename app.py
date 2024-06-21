@@ -380,5 +380,22 @@ def submit_aspiration():
 
     return redirect(request.referrer)
 
+@app.route('/submit_comment', methods=['POST'])
+def submit_comment():
+    comment_text = request.form.get('comment_text')
+    name = request.form.get('name')
+    email = request.form.get('email')
+    
+    if comment_text and name and email:
+        doc = {
+            'comment_text': comment_text,
+            'name': name,
+            'email': email,
+            'timestamp': datetime.utcnow()
+        }
+        db.comments.insert_one(doc)
+
+    return redirect(request.referrer)
+
 if __name__ == '__main__':
     app.run(port=5000,debug=True)

@@ -92,23 +92,25 @@
     <section id="comments-section">
         <div class="container">
             <h4>Comments*</h4>
+            <form action="{{ url_for('submit_comment') }}" method="POST">
             <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="comment_text" style="height: 100px"></textarea>
                 <label for="floatingTextarea2">Tuliskan komentar...</label>
             </div>
             <br>
             <div class="row">
                 <div class="col">
                     <h4>Name*</h4>
-                  <input type="text" class="form-control" placeholder="name" aria-label="name">
+                  <input type="text" class="form-control" placeholder="name" name="name" aria-label="name">
                 </div>
                 <div class="col">
                     <h4>Email*</h4>
-                  <input type="text" class="form-control" placeholder="email" aria-label="email">
+                  <input type="text" class="form-control" placeholder="email" name="email" aria-label="email">
                 </div>
               </div>
               <br>
-              <button type="button" class="btn btn-primary"><i class="bi bi-send">Post Comments</i></button>
+              <button type="submit" class="btn btn-primary"><i class="bi bi-send">Post Comments</i></button>
+            </form>
         </div>
       </section>
 
@@ -128,6 +130,7 @@
                     <br>
                     <button class="btn btn-light">Ajukan Disini!</button>
                   </form>
+                </div>
             </div>
             <div class="col-lg-4">
               <div class="contact-info">
