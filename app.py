@@ -9,7 +9,7 @@ import os
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-MONGODB_CONNECTION_STRING = "mongodb+srv://fabimanyu:Sukses123@atlascluster.pni4lxb.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster"
+MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGODB_CONNECTION_STRING)
 db = client.dbmypbb
 students_collection = db['students'] 
