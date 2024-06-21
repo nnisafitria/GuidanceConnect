@@ -177,15 +177,17 @@ h1, h2 {
         </div>
 
         <main>
+          {% for alumni in alumnis %}
         <div class="testimonial" data-url="{{ url_for('alumni', id=alumni._id) }}">
-            <img class="alumnis" src='../static/img/alumni/{{ alumni.gambaralumni }}'>
+            <img class="gambar" src='../static/img/alumni/{{ alumni.gambaralumni }}'>
             <div class="content">
-                <h3>{{ alumni.namaalumni }}</h3>
+                <h3><a href="/alumni/{{alumni._id}}">{{ alumni.namaalumni }}</a></h3>
                 <p class="batch">{{ alumni.angkatan }}</p>
                 <p>{{ alumni.testimoni }}</p>
                 <p class="job">{{ alumni.pekerjaan }}</p>
             </div>
         </div>
+        {% endfor %}
     </main>
 
     <footer class="footer py-5">

@@ -44,7 +44,8 @@ def index():
 
 @app.route('/alumni')
 def alumni():
-    return render_template('alumni.html')
+    alumnis = list(db.alumnis.find({}))
+    return render_template('alumni.html',alumnis=alumnis)
 
 @app.route('/forum')
 def forum():
