@@ -65,7 +65,8 @@ def advokasi():
 
 @app.route('/beasiswa')
 def beasiswa():
-    return render_template('informasiBeasiswa.html')
+    infos = list(db.infos.find({}))
+    return render_template('informasiBeasiswa.html',infos=infos)
 
 @app.route('/blog/<id>', methods=['GET'])
 def blog(id):
@@ -312,11 +313,6 @@ def tambah_beasiswa():
 
         return redirect(url_for("admin_infobeasiswa"))
     return render_template('tambah_beasiswa.html')
-
-@app.route('/informasiBeasiswa')
-def show_informasiBeasiswa():
-    infos = list(db.infos.find({}))
-    return render_template('informasiBeasiswa.html',infos=infos)
 
 @app.route('/edit_info/<id>', methods=['GET', 'POST'])
 def edit_info(id):
