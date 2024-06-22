@@ -286,6 +286,8 @@ def delete_blog(id):
 @app.route('/admin_infobeasiswa')
 def admin_infobeasiswa():
     infos = list(db.infos.find({}))
+    for info in infos:
+        info['deskripsidanpersyaratan'] = info['deskripsidanpersyaratan'].replace('\n', '<br>')
     return render_template('admin_infobeasiswa.html',infos=infos)
 
 @app.route('/tambah_beasiswa', methods=['GET', 'POST'])
