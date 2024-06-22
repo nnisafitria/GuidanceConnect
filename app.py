@@ -40,8 +40,6 @@ def index():
     blogs = list(db.blogs.find({}))
     return render_template('index.html',blogs=blogs)
 
-
-
 @app.route('/alumni')
 def alumni():
     alumnis = list(db.alumnis.find({}))
@@ -280,7 +278,7 @@ def edit_blog(id):
     blog = db.blogs.find_one({'_id': ObjectId(id)})
     return render_template('edit_blog.html', blog=blog)
 
-@app.route('/delete/<id>', methods=['POST'])
+@app.route('/delete_blog/<id>', methods=['POST'])
 def delete_blog(id):
     db.blogs.delete_one({'_id': ObjectId(id)})
     return redirect(url_for('admin_blog'))
