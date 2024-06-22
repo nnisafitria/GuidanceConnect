@@ -462,6 +462,11 @@ img {
     font-family: 'Quicksand', sans-serif;
 }
 
+.text .inner-text p {
+    margin-bottom: 1em;  /* Mengatur jarak antar paragraf */
+    line-height: 1.6;   /* Menambahkan jarak antar baris untuk keterbacaan */
+}
+
 #comments-section h4 {
     font-family: 'Quicksand', sans-serif;
 }
