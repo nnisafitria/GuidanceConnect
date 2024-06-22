@@ -69,6 +69,8 @@ def beasiswa():
 @app.route('/blog/<id>', methods=['GET'])
 def blog(id):
     blog = db.blogs.find_one({'_id': ObjectId(id)})
+    if blog:
+        blog['deskripsi'] = blog['deskripsi'].replace('\n', '<br>')
     return render_template('blog.html', blog=blog)
 
 @app.route('/alumni_mahasiswa')
