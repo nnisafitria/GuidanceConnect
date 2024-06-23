@@ -17,12 +17,12 @@ app.secret_key = 'your_secret_key'
 MONGODB_URI = os.environ.get("MONGODB_URI")
 DB_NAME =  os.environ.get("DB_NAME")
 
-client = MongoClient(MONGODB_URI)
-db = client[DB_NAME]
+# client = MongoClient(MONGODB_URI)
+# db = client[DB_NAME]
 
-# MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-# client = MongoClient(MONGODB_CONNECTION_STRING)
-# db = client.dbmypbb
+MONGODB_CONNECTION_STRING = "mongodb+srv://annisafitria821:sparta@cluster0.cjx4lrn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+client = MongoClient(MONGODB_CONNECTION_STRING)
+db = client.dbmypbb
 students_collection = db['students'] 
 
 @app.route('/api/student_data')
